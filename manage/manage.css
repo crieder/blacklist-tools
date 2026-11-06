@@ -1,0 +1,18 @@
+.toolbar { display: flex; gap: 6px; margin: 12px 0 4px; }
+.toolbar input { flex: 1; }
+.toolbar select { width: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+th, td { text-align: left; padding: 5px 6px; border-bottom: 1px solid var(--border); }
+th { font-size: 12px; color: var(--muted); font-weight: 600; }
+td.addr { overflow-wrap: anywhere; }
+td.act { width: 1%; white-space: nowrap; text-align: right; }
+td.act button { padding: 2px 8px; font-size: 12px; }
+td.act button.confirm { background: var(--err); border-color: var(--err); color: #fff; }
+tr.inactive td { color: var(--muted); }
+mark { background: color-mix(in srgb, var(--accent) 25%, transparent); color: inherit; }
+.pager { display: flex; align-items: center; gap: 6px; margin-top: 10px; }
+.pager select { width: auto; margin-left: 6px; }
+.pager .spacer { flex: 1; }
+.pager button { padding: 3px 10px; }
+#pageInfo { min-width: 110px; text-align: center; }
+.empty { color: var(--muted); text-align: center; padding: 16px; }

@@ -1,0 +1,74 @@
+:root {
+  color-scheme: light dark;
+  --bg: Canvas;
+  --fg: CanvasText;
+  --muted: color-mix(in srgb, CanvasText 60%, Canvas);
+  --border: color-mix(in srgb, CanvasText 25%, Canvas);
+  --accent: #0060df;
+  --ok: #058b00;
+  --err: #d70022;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --accent: #45a1ff; --ok: #54ffbd; --err: #ff848b; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 16px 20px;
+  background: var(--bg);
+  color: var(--fg);
+  font: message-box;
+  font-size: 14px;
+}
+h1 { font-size: 17px; margin: 0 0 4px; }
+h2 { font-size: 15px; margin: 22px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+.muted, .hint { color: var(--muted); }
+.hint { font-size: 12px; margin: 4px 0 0; }
+.row { margin: 12px 0; }
+.row > label:not(.check) { display: block; font-weight: 600; margin-bottom: 4px; }
+.inline { display: flex; gap: 8px; align-items: center; }
+input[type="text"], input[type="password"], input[type="url"], select {
+  width: 100%;
+  padding: 6px 8px;
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: Field;
+  color: FieldText;
+}
+.inline select { width: auto; min-width: 140px; }
+.check { display: flex; gap: 6px; align-items: center; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.chips button { font-size: 12px; padding: 2px 8px; border-radius: 10px; }
+button {
+  font: inherit;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: ButtonFace;
+  color: ButtonText;
+  cursor: pointer;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:disabled { opacity: .6; cursor: default; }
+.buttons { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+#status { min-height: 1.4em; margin: 8px 0 0; }
+#status.ok { color: var(--ok); }
+#status.err { color: var(--err); }
+.hidden { display: none !important; }
+.info {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 12px;
+  margin: 8px 0 4px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+}
+.info dt { color: var(--muted); }
+.info dd { margin: 0; overflow-wrap: anywhere; }
+.chips-label { font-size: 12px; color: var(--muted); align-self: center; }
+.cookie-row { display: flex; align-items: center; gap: 10px; }
+.cookie-row .ok { color: var(--ok, green); }
+.cookie-row .err { color: var(--err); }

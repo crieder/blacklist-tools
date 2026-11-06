@@ -1,0 +1,670 @@
+{
+  "extensionName": {
+    "message": "Blacklist-Tools"
+  },
+  "extensionDescription": {
+    "message": "Spam menu in the message view: add the sender, subject or selected text to an existing message filter, manage the ISPConfig email blacklist and mark messages as junk."
+  },
+  "actionLabel": {
+    "message": "Spam"
+  },
+  "menuFilterSender": {
+    "message": "Add sender to filter …"
+  },
+  "menuFilterSubject": {
+    "message": "Add subject to filter …"
+  },
+  "menuFilterBody": {
+    "message": "Add selected text to filter …"
+  },
+  "menuBlacklist": {
+    "message": "Add to ISPConfig blacklist …"
+  },
+  "menuBlacklistManage": {
+    "message": "Show ISPConfig blacklist …"
+  },
+  "menuMarkSpam": {
+    "message": "Mark as junk"
+  },
+  "menuOptions": {
+    "message": "Settings …"
+  },
+  "menuCtxFilterSelection": {
+    "message": "Add selection to filter …"
+  },
+  "notifyNoMessage": {
+    "message": "No message is selected."
+  },
+  "notifyErrorTitle": {
+    "message": "$P1$ – error",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "btnCancel": {
+    "message": "Cancel"
+  },
+  "btnAdd": {
+    "message": "Add"
+  },
+  "btnDelete": {
+    "message": "Delete"
+  },
+  "btnConfirmDelete": {
+    "message": "Really delete?"
+  },
+  "btnBlock": {
+    "message": "Block"
+  },
+  "btnTest": {
+    "message": "Test connection"
+  },
+  "btnSave": {
+    "message": "Save"
+  },
+  "yes": {
+    "message": "Yes"
+  },
+  "no": {
+    "message": "No"
+  },
+  "typeRecipient": {
+    "message": "Recipient"
+  },
+  "typeSender": {
+    "message": "Sender"
+  },
+  "typeRecipientLong": {
+    "message": "Recipient (e.g. a burned address)"
+  },
+  "typeSenderLong": {
+    "message": "Sender"
+  },
+  "statusWorking": {
+    "message": "Working …"
+  },
+  "dlgFilterTitle": {
+    "message": "Add to filter"
+  },
+  "dlgSubjectLine": {
+    "message": "Subject: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dlgNoSubject": {
+    "message": "(no subject)"
+  },
+  "dlgConnection": {
+    "message": "Connection"
+  },
+  "dlgReceivedIn": {
+    "message": "Mail received in account"
+  },
+  "dlgFilter": {
+    "message": "Filter"
+  },
+  "dlgType": {
+    "message": "Type"
+  },
+  "dlgCondition": {
+    "message": "Condition"
+  },
+  "fieldSender": {
+    "message": "From"
+  },
+  "fieldSubject": {
+    "message": "Subject"
+  },
+  "fieldBody": {
+    "message": "Body"
+  },
+  "dlgContains": {
+    "message": "contains"
+  },
+  "dlgSearchText": {
+    "message": "Search text"
+  },
+  "dlgHintTrim": {
+    "message": "Shorten the text to the part you need, e.g. just the domain."
+  },
+  "dlgMarkAfter": {
+    "message": "Then mark the message as junk"
+  },
+  "chipAddress": {
+    "message": "Address"
+  },
+  "chipDomain": {
+    "message": "Domain"
+  },
+  "chipWholeSubject": {
+    "message": "Whole subject"
+  },
+  "chipsOtherRecipients": {
+    "message": "Other recipient addresses:"
+  },
+  "chipsUse": {
+    "message": "Use:"
+  },
+  "dlgTipSelect": {
+    "message": "Tip: select text in the message, then open the menu again."
+  },
+  "dlgOwnWarning": {
+    "message": "Warning: this is one of your own mailbox addresses – all mail to it would be rejected!"
+  },
+  "dlgConfirmOwn": {
+    "message": "Your own mailbox address! Click “Block” again to confirm."
+  },
+  "hintRecipient": {
+    "message": "Mail to this address will be rejected by the server."
+  },
+  "hintSender": {
+    "message": "Mail from this sender will be rejected by the server."
+  },
+  "dlgBlacklistTitle": {
+    "message": "ISPConfig email blacklist"
+  },
+  "dlgBlacklistHeading": {
+    "message": "Add to the ISPConfig email blacklist"
+  },
+  "dlgAddressToBlock": {
+    "message": "Address to block"
+  },
+  "errNoFilters": {
+    "message": "This account has no message filters."
+  },
+  "errEnterSearchText": {
+    "message": "Please enter a search text."
+  },
+  "blAlreadyListed": {
+    "message": "“$P1$” ($P2$) is already on the blacklist.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "blAdded": {
+    "message": "“$P1$” ($P2$) was added to the blacklist.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "filterDuplicate": {
+    "message": "This condition already exists in filter “$P1$”.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "filterAdded": {
+    "message": "Added to filter “$P1$” ($P2$ conditions).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "markedAsJunk": {
+    "message": "Message marked as junk."
+  },
+  "mgPlaceholder": {
+    "message": "Search or enter a new address …"
+  },
+  "mgTypeTitle": {
+    "message": "Type for a new entry"
+  },
+  "mgAdd": {
+    "message": "Add"
+  },
+  "mgReload": {
+    "message": "Reload"
+  },
+  "colAddress": {
+    "message": "Address"
+  },
+  "colType": {
+    "message": "Type"
+  },
+  "colActive": {
+    "message": "Active"
+  },
+  "mgPerPage": {
+    "message": "Entries per page"
+  },
+  "mgAll": {
+    "message": "All"
+  },
+  "mgFirst": {
+    "message": "First page"
+  },
+  "mgPrev": {
+    "message": "Previous page"
+  },
+  "mgNext": {
+    "message": "Next page"
+  },
+  "mgLast": {
+    "message": "Last page"
+  },
+  "mgNoMatch": {
+    "message": "No matches – use “Add” to create a new entry."
+  },
+  "mgEmpty": {
+    "message": "No entries."
+  },
+  "mgPageInfo": {
+    "message": "Page $P1$ of $P2$ · $P3$ entries",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "mgPageInfoFiltered": {
+    "message": "Page $P1$ of $P2$ · $P3$ of $P4$ entries",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      },
+      "p4": {
+        "content": "$4"
+      }
+    }
+  },
+  "mgExists": {
+    "message": "This entry already exists"
+  },
+  "mgAddTitle": {
+    "message": "Add to the blacklist"
+  },
+  "mgLoading": {
+    "message": "Loading blacklist …"
+  },
+  "mgLoaded": {
+    "message": "$P1$ entries loaded.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "mgDeleting": {
+    "message": "Deleting “$P1$” …",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "mgStillThere": {
+    "message": "“$P1$” is still present – deleting failed.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "mgDeleted": {
+    "message": "“$P1$” deleted.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "mgOwnWarning": {
+    "message": "Warning: your own mailbox address! Click “Add” again to confirm."
+  },
+  "mgAdding": {
+    "message": "Adding “$P1$” …",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "mgWasPresent": {
+    "message": "“$P1$” was already present.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "mgAdded": {
+    "message": "“$P1$” ($P2$) added.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "optTitle": {
+    "message": "Blacklist-Tools – Settings"
+  },
+  "optFilters": {
+    "message": "Message filters"
+  },
+  "optFilterAccount": {
+    "message": "Account containing the filter"
+  },
+  "optFilterAccountDefault": {
+    "message": "Account of the displayed message"
+  },
+  "optFilterName": {
+    "message": "Default filter"
+  },
+  "optFilterHint": {
+    "message": "The filter must already exist. New conditions are appended as “contains”."
+  },
+  "optFilterCount": {
+    "message": "$P1$ filters found in the account. The filter must already exist.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optMarkAfterFilter": {
+    "message": "After adding, mark the message as junk (default)"
+  },
+  "optSpamButton": {
+    "message": "Spam button"
+  },
+  "optHideNative": {
+    "message": "Hide Thunderbird's own junk button (show only “Spam ▾”)"
+  },
+  "optMarkSpam": {
+    "message": "Mark as junk"
+  },
+  "optMarkRead": {
+    "message": "Mark as read"
+  },
+  "optMoveJunk": {
+    "message": "Move to the account's junk folder"
+  },
+  "optIsp": {
+    "message": "ISPConfig email blacklist"
+  },
+  "optIspIntro": {
+    "message": "Optional. Only needed if your mail is hosted on a server managed with ISPConfig."
+  },
+  "optIspUrl": {
+    "message": "ISPConfig address"
+  },
+  "optAuth": {
+    "message": "Login"
+  },
+  "optAuthPanel": {
+    "message": "Panel login (regular customer login)"
+  },
+  "optAuthRemote": {
+    "message": "Remote API user (created by the hoster)"
+  },
+  "optUser": {
+    "message": "User name"
+  },
+  "optPassword": {
+    "message": "Password"
+  },
+  "optPasswordHint": {
+    "message": "Stored in Thunderbird's password manager (Settings → Privacy & Security → Saved Passwords)."
+  },
+  "optPasswordSaved": {
+    "message": "saved – leave empty to keep it"
+  },
+  "optDefaultType": {
+    "message": "Default type"
+  },
+  "optTypeRecipient": {
+    "message": "Recipient"
+  },
+  "optTypeSender": {
+    "message": "Sender"
+  },
+  "optMailbox": {
+    "message": "Mailbox in ISPConfig (remote API only)"
+  },
+  "optMailboxPh": {
+    "message": "empty = address of the message's account"
+  },
+  "optClientId": {
+    "message": "Client ID (remote API only)"
+  },
+  "optClientIdPh": {
+    "message": "empty = automatic"
+  },
+  "optMarkAfterBlacklist": {
+    "message": "After blocking, mark the message as junk (default)"
+  },
+  "optDebug": {
+    "message": "Troubleshooting"
+  },
+  "optDebugLog": {
+    "message": "Keep a log file of ISPConfig requests"
+  },
+  "optDebugHint": {
+    "message": "Password, session ID and form tokens are masked; blocked addresses appear in plain text. File:"
+  },
+  "optOpenLog": {
+    "message": "Open log file"
+  },
+  "optClearLog": {
+    "message": "Delete log file"
+  },
+  "optNoLog": {
+    "message": "There is no log file yet – enable logging and click “Test connection”."
+  },
+  "optLogCleared": {
+    "message": "Log file deleted."
+  },
+  "optSaved": {
+    "message": "Saved."
+  },
+  "optSavedNoPermission": {
+    "message": "Saved – but without permission to access the ISPConfig server."
+  },
+  "optTesting": {
+    "message": "Testing connection …"
+  },
+  "errHttps": {
+    "message": "Please use an https address."
+  },
+  "errMissingUrl": {
+    "message": "No ISPConfig address configured. Please enter it in the add-on settings."
+  },
+  "errMissingCredentials": {
+    "message": "ISPConfig credentials are missing. Please enter them in the add-on settings."
+  },
+  "errUnreachable": {
+    "message": "ISPConfig is not reachable ($P1$).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errHttp": {
+    "message": "ISPConfig responded with HTTP $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errLoginFailed": {
+    "message": "ISPConfig login failed: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errLoginLost": {
+    "message": "ISPConfig login failed (no error message from ISPConfig – the session was lost; see the log file under Settings → Troubleshooting)."
+  },
+  "errNoForm": {
+    "message": "After logging in, the blacklist form was not reachable. Does the account have access to Email → Email Blacklist?"
+  },
+  "errIsp": {
+    "message": "ISPConfig: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errNotSaved": {
+    "message": "ISPConfig did not accept the entry (not found in the list after saving)."
+  },
+  "errBadResponse": {
+    "message": "Unexpected response from ISPConfig ($P1$). Is the remote API enabled?",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errIspMethod": {
+    "message": "ISPConfig ($P1$): $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "errMailboxNotFound": {
+    "message": "Mailbox “$P1$” was not found in ISPConfig.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errNoDeleteLink": {
+    "message": "No delete link was found for this entry."
+  },
+  "connPanel": {
+    "message": "Panel login as “$P1$” · $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "connRemote": {
+    "message": "Remote API as “$P1$” · $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "testRemoteOk": {
+    "message": "Remote API login successful."
+  },
+  "testPanelOk": {
+    "message": "Panel login successful, blacklist form reachable (server: $P1$).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "expUnknownField": {
+    "message": "Unknown field: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "expAccountNotFound": {
+    "message": "Account “$P1$” not found.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "expNoFilterSupport": {
+    "message": "The account “$P1$” does not support message filters.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "expFilterListFailed": {
+    "message": "The filter list could not be loaded."
+  },
+  "expEmptyText": {
+    "message": "The search text is empty."
+  },
+  "expFilterNotFound": {
+    "message": "Account “$P1$” has no filter named “$P2$”.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "expMatchAll": {
+    "message": "The filter “$P1$” is set to “Match all messages”. Please switch it to “Match any of the following” first.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "expHttpsOnly": {
+    "message": "Only HTTPS addresses are allowed."
+  },
+  "expNoMainWindow": {
+    "message": "No Thunderbird main window found for the connection."
+  }
+}
