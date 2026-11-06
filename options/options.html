@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html data-i18n-doc-title="optTitle">
+<head>
+  <meta charset="utf-8">
+  <title>Blacklist-Tools</title>
+  <link rel="stylesheet" href="../lib/ui.css">
+</head>
+<body>
+  <form id="form">
+    <h2 data-i18n="optFilters"></h2>
+    <div class="row">
+      <label for="filterAccountId" data-i18n="optFilterAccount"></label>
+      <select id="filterAccountId"><option value="" data-i18n="optFilterAccountDefault"></option></select>
+    </div>
+    <div class="row">
+      <label for="filterName" data-i18n="optFilterName"></label>
+      <input id="filterName" type="text" list="filterNames" required>
+      <datalist id="filterNames"></datalist>
+      <p class="hint" id="filterHint" data-i18n="optFilterHint"></p>
+    </div>
+    <div class="row">
+      <label class="check"><input id="markAfterFilter" type="checkbox"> <span data-i18n="optMarkAfterFilter"></span></label>
+    </div>
+
+    <h2 data-i18n="optSpamButton"></h2>
+    <div class="row">
+      <label class="check"><input id="hideNativeJunkButton" type="checkbox"> <span data-i18n="optHideNative"></span></label>
+    </div>
+
+    <h2 data-i18n="optMarkSpam"></h2>
+    <div class="row">
+      <label class="check"><input id="spamMarkRead" type="checkbox"> <span data-i18n="optMarkRead"></span></label>
+      <label class="check"><input id="spamMoveToJunk" type="checkbox"> <span data-i18n="optMoveJunk"></span></label>
+    </div>
+
+    <h2 data-i18n="optIsp"></h2>
+    <p class="hint" data-i18n="optIspIntro"></p>
+    <div class="row">
+      <label for="ispUrl" data-i18n="optIspUrl"></label>
+      <input id="ispUrl" type="url" placeholder="https://ispconfig.example.com:8080">
+    </div>
+    <div class="row">
+      <label for="ispAuthMode" data-i18n="optAuth"></label>
+      <select id="ispAuthMode">
+        <option value="panel" data-i18n="optAuthPanel"></option>
+        <option value="remote" data-i18n="optAuthRemote"></option>
+      </select>
+    </div>
+    <div class="row">
+      <label for="ispUser" data-i18n="optUser"></label>
+      <input id="ispUser" type="text" autocomplete="off">
+    </div>
+    <div class="row">
+      <label for="ispPassword" data-i18n="optPassword"></label>
+      <input id="ispPassword" type="password" autocomplete="new-password">
+      <p class="hint" data-i18n="optPasswordHint"></p>
+    </div>
+    <div class="row">
+      <label for="ispBlacklistType" data-i18n="optDefaultType"></label>
+      <select id="ispBlacklistType">
+        <option value="recipient" data-i18n="optTypeRecipient"></option>
+        <option value="sender" data-i18n="optTypeSender"></option>
+      </select>
+    </div>
+    <div class="row remote-only">
+      <label for="ispMailbox" data-i18n="optMailbox"></label>
+      <input id="ispMailbox" type="text" data-i18n-placeholder="optMailboxPh">
+    </div>
+    <div class="row remote-only">
+      <label for="ispClientId" data-i18n="optClientId"></label>
+      <input id="ispClientId" type="text" inputmode="numeric" data-i18n-placeholder="optClientIdPh">
+    </div>
+    <div class="row">
+      <label class="check"><input id="markAfterBlacklist" type="checkbox"> <span data-i18n="optMarkAfterBlacklist"></span></label>
+    </div>
+
+    <h2 data-i18n="optDebug"></h2>
+    <div class="row">
+      <label class="check"><input id="debugLog" type="checkbox"> <span data-i18n="optDebugLog"></span></label>
+      <p class="hint"><span data-i18n="optDebugHint"></span> <code id="logPath"></code></p>
+      <div class="cookie-row">
+        <button type="button" id="revealLog" data-i18n="optOpenLog"></button>
+        <button type="button" id="clearLog" data-i18n="optClearLog"></button>
+      </div>
+    </div>
+
+    <p id="status" role="status"></p>
+    <div class="buttons">
+      <button type="button" id="test" data-i18n="btnTest"></button>
+      <button type="submit" class="primary" data-i18n="btnSave"></button>
+    </div>
+  </form>
+
+  <script src="../lib/common.js"></script>
+  <script src="../lib/ispconfig.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

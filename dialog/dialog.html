@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html data-i18n-doc-title="dlgFilterTitle">
+<head>
+  <meta charset="utf-8">
+  <title>Blacklist-Tools</title>
+  <link rel="stylesheet" href="../lib/ui.css">
+</head>
+<body>
+  <form id="form">
+    <h1 id="heading" data-i18n="dlgFilterTitle"></h1>
+    <p id="target" class="muted"></p>
+    <dl id="bl-info" class="info hidden">
+      <dt data-i18n="dlgConnection"></dt><dd id="bl-conn"></dd>
+      <dt data-i18n="dlgReceivedIn"></dt><dd id="bl-account"></dd>
+    </dl>
+
+    <div id="filter-row" class="row">
+      <label for="filter" data-i18n="dlgFilter"></label>
+      <select id="filter"></select>
+    </div>
+
+    <div id="bltype-row" class="row hidden">
+      <label for="bltype" data-i18n="dlgType"></label>
+      <select id="bltype">
+        <option value="recipient" data-i18n="typeRecipientLong"></option>
+        <option value="sender" data-i18n="typeSenderLong"></option>
+      </select>
+    </div>
+
+    <div id="field-row" class="row">
+      <label for="field" data-i18n="dlgCondition"></label>
+      <div class="inline">
+        <select id="field">
+          <option value="sender" data-i18n="fieldSender"></option>
+          <option value="subject" data-i18n="fieldSubject"></option>
+          <option value="body" data-i18n="fieldBody"></option>
+        </select>
+        <span class="op" data-i18n="dlgContains"></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <label for="value" id="value-label" data-i18n="dlgSearchText"></label>
+      <input id="value" type="text" autocomplete="off" spellcheck="false" required>
+      <div id="chips" class="chips"></div>
+      <p class="hint" id="hint" data-i18n="dlgHintTrim"></p>
+    </div>
+
+    <div class="row">
+      <label class="check"><input id="mark" type="checkbox"> <span data-i18n="dlgMarkAfter"></span></label>
+    </div>
+
+    <p id="status" role="status"></p>
+
+    <div class="buttons">
+      <button type="button" id="cancel" data-i18n="btnCancel"></button>
+      <button type="submit" id="ok" class="primary" data-i18n="btnAdd"></button>
+    </div>
+  </form>
+
+  <script src="../lib/common.js"></script>
+  <script src="../lib/ispconfig.js"></script>
+  <script src="dialog.js"></script>
+</body>
+</html>

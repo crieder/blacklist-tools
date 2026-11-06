@@ -1,0 +1,183 @@
+[
+  {
+    "namespace": "spamFilterEditor",
+    "description": "Small set of Thunderbird internals used by Blacklist-Tools: message filters, header selection, junk button, ISPConfig HTTP session and password storage, log file.",
+    "functions": [
+      {
+        "name": "setNativeJunkButtonHidden",
+        "type": "function",
+        "async": true,
+        "description": "Blendet den eingebauten Spam-Button der Nachrichtenansicht aus (true) oder wieder ein (false).",
+        "parameters": [
+          {
+            "name": "hidden",
+            "type": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "getHeaderSelection",
+        "type": "function",
+        "async": true,
+        "description": "Liefert den markierten Text in der Kopfzeile (Betreff, Absender) der angezeigten Nachricht.",
+        "parameters": [
+          {
+            "name": "tabId",
+            "type": "integer"
+          }
+        ]
+      },
+      {
+        "name": "writeLog",
+        "type": "function",
+        "async": true,
+        "description": "Hängt Text an die Logdatei blacklist-tools.log im Profilordner an. Liefert den Pfad.",
+        "parameters": [
+          {
+            "name": "text",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "clearLog",
+        "type": "function",
+        "async": true,
+        "description": "Löscht die Logdatei.",
+        "parameters": []
+      },
+      {
+        "name": "getLogPath",
+        "type": "function",
+        "async": true,
+        "description": "Pfad der Logdatei.",
+        "parameters": []
+      },
+      {
+        "name": "revealLog",
+        "type": "function",
+        "async": true,
+        "description": "Öffnet die Logdatei im Standard-Editor (oder den Profilordner, wenn es keine gibt). Liefert, ob die Datei existiert.",
+        "parameters": []
+      },
+      {
+        "name": "httpRequest",
+        "type": "function",
+        "async": true,
+        "description": "HTTPS-Anfrage an die ISPConfig-Weboberfläche mit eigenem Sitzungs-Cookie-Speicher. Liefert {status, url, redirected, text, cookies}.",
+        "parameters": [
+          {
+            "name": "url",
+            "type": "string"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "enum": [
+              "GET",
+              "POST"
+            ]
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "getFilterNames",
+        "type": "function",
+        "async": true,
+        "description": "Liefert die Namen aller Nachrichtenfilter eines Kontos.",
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "addCondition",
+        "type": "function",
+        "async": true,
+        "description": "Hängt eine Bedingung „<Feld> enthält <Wert>“ an den benannten Filter an und speichert die Filterliste.",
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "name": "filterName",
+            "type": "string"
+          },
+          {
+            "name": "field",
+            "type": "string",
+            "enum": [
+              "sender",
+              "subject",
+              "body"
+            ]
+          },
+          {
+            "name": "value",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "setIspPassword",
+        "type": "function",
+        "async": true,
+        "description": "Stores the ISPConfig password in Thunderbird's password manager (empty password removes it).",
+        "parameters": [
+          {
+            "name": "origin",
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "getIspPassword",
+        "type": "function",
+        "async": true,
+        "description": "Reads the ISPConfig password from Thunderbird's password manager.",
+        "parameters": [
+          {
+            "name": "origin",
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "hasIspPassword",
+        "type": "function",
+        "async": true,
+        "description": "Whether a password is stored for this ISPConfig origin and user.",
+        "parameters": [
+          {
+            "name": "origin",
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  }
+]

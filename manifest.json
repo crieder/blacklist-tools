@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "version": "2.1.1",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{4346d631-753f-47b3-84ca-a3d0b8fecebb}",
+      "strict_min_version": "128.0"
+    }
+  },
+  "icons": {
+    "32": "icons/spam.svg",
+    "64": "icons/spam.svg"
+  },
+  "background": {
+    "scripts": [
+      "lib/common.js",
+      "background.js"
+    ]
+  },
+  "message_display_action": {
+    "type": "menu",
+    "default_title": "__MSG_extensionName__",
+    "default_label": "__MSG_actionLabel__",
+    "default_icon": "icons/spam.svg"
+  },
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  "permissions": [
+    "menus",
+    "storage",
+    "notifications",
+    "scripting",
+    "accountsRead",
+    "messagesRead",
+    "messagesUpdate",
+    "messagesMove",
+    "messagesModify"
+  ],
+  "optional_host_permissions": [
+    "https://*/*"
+  ],
+  "experiment_apis": {
+    "spamFilterEditor": {
+      "schema": "api/spamFilterEditor/schema.json",
+      "parent": {
+        "scopes": [
+          "addon_parent"
+        ],
+        "paths": [
+          [
+            "spamFilterEditor"
+          ]
+        ],
+        "script": "api/spamFilterEditor/implementation.js"
+      }
+    }
+  }
+}

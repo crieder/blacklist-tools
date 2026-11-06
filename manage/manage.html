@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-i18n-doc-title="dlgBlacklistTitle">
+<head>
+  <meta charset="utf-8">
+  <title>ISPConfig</title>
+  <link rel="stylesheet" href="../lib/ui.css">
+  <link rel="stylesheet" href="manage.css">
+</head>
+<body>
+  <h1 data-i18n="dlgBlacklistTitle"></h1>
+  <dl class="info">
+    <dt data-i18n="dlgConnection"></dt><dd id="conn"></dd>
+  </dl>
+
+  <form id="addForm" class="toolbar">
+    <input id="query" type="text" data-i18n-placeholder="mgPlaceholder" autocomplete="off" spellcheck="false">
+    <select id="type" data-i18n-title="mgTypeTitle">
+      <option value="recipient" data-i18n="typeRecipient"></option>
+      <option value="sender" data-i18n="typeSender"></option>
+    </select>
+    <button type="submit" id="add" class="primary" data-i18n="mgAdd"></button>
+    <button type="button" id="reload" data-i18n-title="mgReload">⟳</button>
+  </form>
+
+  <p id="status" role="status"></p>
+
+  <table>
+    <thead>
+      <tr><th data-i18n="colAddress"></th><th data-i18n="colType"></th><th data-i18n="colActive"></th><th></th></tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <div class="pager">
+    <label><span data-i18n="mgPerPage"></span>
+      <select id="pageSize">
+        <option>15</option>
+        <option selected>25</option>
+        <option>50</option>
+        <option>100</option>
+        <option value="0" data-i18n="mgAll"></option>
+      </select>
+    </label>
+    <span class="spacer"></span>
+    <button type="button" id="first" data-i18n-title="mgFirst">«</button>
+    <button type="button" id="prev" data-i18n-title="mgPrev">‹</button>
+    <span id="pageInfo"></span>
+    <button type="button" id="next" data-i18n-title="mgNext">›</button>
+    <button type="button" id="last" data-i18n-title="mgLast">»</button>
+  </div>
+
+  <script src="../lib/common.js"></script>
+  <script src="../lib/ispconfig.js"></script>
+  <script src="manage.js"></script>
+</body>
+</html>
