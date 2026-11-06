@@ -93,17 +93,18 @@ Thunderbird bietet Add-ons keine offizielle Schnittstelle für Nachrichtenfilter
 - **Support-E-Mail:** leer lassen (optional)
 - **Quellcode für Prüfer:** nicht nötig (Code ist nicht minimiert); Link zum Repository in den Prüfer-Hinweisen genügt
 
-## 5. Bildunterschriften für Screenshots
+## 5. Screenshots und Bildunterschriften
 
-| Screenshot | English | Deutsch |
+Dateien in `store/screenshots/`, in dieser Reihenfolge hochladen. 4 und 5 sind mit Beispieldaten erzeugt (`python store/screenshots/make.py`).
+
+| Datei | English | Deutsch |
 |---|---|---|
-| Menü | The “Spam ▾” menu in the message header | Das Menü „Spam ▾“ im Nachrichtenkopf |
-| Filter-Dialog | Add the selected part of the subject to an existing filter | Markierten Teil des Betreffs zu einem bestehenden Filter hinzufügen |
-| Blacklist-Dialog | Block a burned recipient address on the ISPConfig server | Verbrannte Empfängeradresse auf dem ISPConfig-Server sperren |
-| Blacklist-Fenster | Search, page through, add and delete blacklist entries | Blacklist-Einträge suchen, blättern, hinzufügen und löschen |
-| Einstellungen | Settings | Einstellungen |
-
-Tipp: für die Screenshots eine Test-Mail verwenden und in der Blacklist-Liste ins Suchfeld etwas eintippen, damit nicht alle echten Adressen zu sehen sind.
+| 1-menu.png | The “Spam ▾” menu in the message header | Das Menü „Spam ▾“ im Nachrichtenkopf |
+| 2-filter-subject.png | Add the subject (or the selected part of it) to an existing filter | Betreff (oder den markierten Teil davon) zu einem bestehenden Filter hinzufügen |
+| 3-filter-sender.png | Add the sender's address or domain to a filter | Absenderadresse oder Domain zu einem Filter hinzufügen |
+| 4-blacklist-dialog.png | Block a burned recipient address on the ISPConfig server | Verbrannte Empfängeradresse auf dem ISPConfig-Server sperren |
+| 5-blacklist-window.png | Search, page through, add and delete blacklist entries | Blacklist-Einträge suchen, blättern, hinzufügen und löschen |
+| 6-settings.png | Settings | Einstellungen |
 
 ## 6. Angaben zur Datenübertragung
 
