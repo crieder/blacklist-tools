@@ -88,7 +88,10 @@ Thunderbird bietet Add-ons keine offizielle Schnittstelle für Nachrichtenfilter
 - **Schlagwörter / Tags:** spam, junk, filter, blacklist, ispconfig, message filter
 - **Lizenz:** Mozilla Public License 2.0 (MPL-2.0)
 - **Datenschutzerklärung:** Inhalt von `PRIVACY.md` einfügen (beide Sprachen)
-- **Support-E-Mail / Website:** von Ihnen festzulegen (z. B. eine eigene Adresse oder die Issues-Seite eines GitHub-Repositorys)
+- **Homepage:** https://github.com/crieder/blacklist-tools
+- **Support-Website:** https://github.com/crieder/blacklist-tools/issues
+- **Support-E-Mail:** leer lassen (optional)
+- **Quellcode für Prüfer:** nicht nötig (Code ist nicht minimiert); Link zum Repository in den Prüfer-Hinweisen genügt
 
 ## 5. Bildunterschriften für Screenshots
 
@@ -135,6 +138,8 @@ The Experiment API "spamFilterEditor" (api/spamFilterEditor/implementation.js, ~
 6. Optional debug log – writeLog()/clearLog()/revealLog() write blacklist-tools.log to the profile folder only when the user enables logging. Passwords, session IDs and CSRF tokens are masked before writing.
 
 No remote code is loaded, no data is sent anywhere except the user-configured ISPConfig server.
+
+Source repository: https://github.com/crieder/blacklist-tools
 
 Testing without ISPConfig: the filter functions can be tested with any account that has a message filter (e.g. create a filter "Spam", match "any of the following", one condition). Open a message, click "Spam ▾" in the header, choose "Add sender to filter …".
 ```

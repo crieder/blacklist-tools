@@ -23,7 +23,7 @@ The ISPConfig session cookie is kept in memory only, used only for these request
 
 ## Contact
 
-Questions: use the support link on the add-on's page at addons.thunderbird.net.
+Questions: https://github.com/crieder/blacklist-tools/issues
 
 ---
 
