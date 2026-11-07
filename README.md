@@ -1,6 +1,16 @@
 # Blacklist-Tools for Thunderbird
 
+**[⬇ Download the latest version (.xpi)](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)** · [All releases](https://github.com/crieder/blacklist-tools/releases) · [Support the project on Liberapay](https://liberapay.com/crieder/donate)
+
 *Deutsche Beschreibung weiter unten.*
+
+## Installation
+
+1. Download **[blacklist-tools.xpi](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)**.
+2. In Thunderbird open *Add-ons and Themes* (Tools menu), click the gear icon → *Install Add-on From File …* and choose the downloaded file.
+3. Open the add-on's settings (the “Spam ▾” menu → *Settings …*).
+
+Requires Thunderbird 128 or newer.
 
 Adds a **“Spam ▾”** button to the message header. Its menu offers:
 
@@ -34,6 +44,10 @@ Thunderbird has no official WebExtension API for message filters, for hiding the
 
 Thunderbird can block Experiment add-ons via `extensions.experiments.suppressed`. In that case, add the add-on ID `{4346d631-753f-47b3-84ca-a3d0b8fecebb}` to `extensions.experiments.allowed` (Settings → Config Editor).
 
+## Support the project
+
+Blacklist-Tools is free. If it saves you time, you can support its development on **[Liberapay](https://liberapay.com/crieder/donate)**. Bug reports and ideas are welcome as [GitHub issues](https://github.com/crieder/blacklist-tools/issues).
+
 ## Privacy
 
 See [PRIVACY.md](PRIVACY.md). In short: the add-on only talks to the ISPConfig server *you* enter. Nothing is sent to the developer or anyone else.
@@ -65,6 +79,8 @@ License: MPL 2.0.
 
 # Blacklist-Tools für Thunderbird (Deutsch)
 
+**[⬇ Aktuelle Version herunterladen (.xpi)](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)** – in Thunderbird unter *Add-ons und Themes* → Zahnrad → *Add-on aus Datei installieren …* auswählen. Benötigt Thunderbird 128 oder neuer.
+
 Fügt im Nachrichtenkopf einen Button **„Spam ▾“** hinzu. Das Menü bietet:
 
 1. **Filter um Absender / Betreff / markierten Mailinhalt ergänzen**: Hängt an einen *bestehenden* Nachrichtenfilter eine Bedingung „enthält …“ an. Markierter Text im Betreff oder im Nachrichtentext wird übernommen und lässt sich vorher noch kürzen.
@@ -73,3 +89,5 @@ Fügt im Nachrichtenkopf einen Button **„Spam ▾“** hinzu. Das Menü bietet
 4. **Als Spam markieren**: Wie der eingebaute Spam-Button. Der eingebaute Button lässt sich ausblenden.
 
 Der ISPConfig-Teil ist optional. Das Passwort liegt in der Thunderbird-Passwortverwaltung (Eintrag „ISPConfig (Blacklist-Tools)“). Beim Panel-Login verwaltet das Add-on das Sitzungs-Cookie selbst; es funktioniert also auch, wenn Thunderbird alle Cookies ablehnt. Bei Problemen hilft das Protokoll unter Einstellungen → Fehlersuche.
+
+Das Add-on ist kostenlos. Wer die Entwicklung unterstützen möchte: **[Liberapay](https://liberapay.com/crieder/donate)**. Fehler und Wünsche bitte als [GitHub-Issue](https://github.com/crieder/blacklist-tools/issues).
