@@ -122,6 +122,8 @@ Falls ATN die neuen Mozilla-Kategorien abfragt („data collection permissions�
 ## 7. Hinweise für die Prüfer / Notes to reviewers (Englisch einfügen)
 
 ```
+Changes in 2.1.4 (only change since 2.1.3): a donation link was added as the last item of the "Spam ▾" menu and as a button at the bottom of the settings page. Both call messenger.windows.openDefaultBrowser("https://liberapay.com/crieder/donate") on a user click only; no Experiment code was changed and no new permissions are requested.
+
 Blacklist-Tools is a plain, unminified MailExtension (Manifest V3). There is no build step for the code; the only generated files are _locales/*/messages.json, created from tools/locales.py (included in the source repository, not needed at runtime).
 
 The Experiment API "spamFilterEditor" (api/spamFilterEditor/implementation.js, ~440 lines, commented) is needed because Thunderbird has no WebExtension API for these tasks:
@@ -138,7 +140,7 @@ The Experiment API "spamFilterEditor" (api/spamFilterEditor/implementation.js, ~
 
 6. Optional debug log – writeLog()/clearLog()/revealLog() write blacklist-tools.log to the profile folder only when the user enables logging. Passwords, session IDs and CSRF tokens are masked before writing.
 
-No remote code is loaded, no data is sent anywhere except the user-configured ISPConfig server.
+No remote code is loaded, no data is sent anywhere except the user-configured ISPConfig server. The donation link only opens a web page in the user's default browser when clicked; nothing is transmitted by the add-on.
 
 Source repository: https://github.com/crieder/blacklist-tools
 
