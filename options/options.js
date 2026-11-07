@@ -92,6 +92,7 @@ async function init() {
   updateRemoteRows();
   updatePasswordPlaceholder();
   $("filterAccountId").addEventListener("change", loadFilterNames);
+  $("donate").addEventListener("click", () => openDonatePage().catch(e => console.error(e)));
   await loadFilterNames();
 }
 

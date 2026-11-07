@@ -16,6 +16,7 @@ const MENU = [
   { id: "mark-spam", title: "menuMarkSpam" },
   { id: "sep-3", type: "separator" },
   { id: "options", title: "menuOptions" },
+  { id: "donate", title: "menuDonate" },
 ];
 
 async function createMenus() {
@@ -121,6 +122,10 @@ browser.menus.onClicked.addListener(async (info, tab) => {
   try {
     if (info.menuItemId === "options") {
       await browser.runtime.openOptionsPage();
+      return;
+    }
+    if (info.menuItemId === "donate") {
+      await openDonatePage();
       return;
     }
     if (info.menuItemId === "blacklist-manage") {
