@@ -29,6 +29,9 @@
   "menuOptions": {
     "message": "Settings …"
   },
+  "menuDonate": {
+    "message": "♥ Support Blacklist-Tools (donate) …"
+  },
   "menuCtxFilterSelection": {
     "message": "Add selection to filter …"
   },
@@ -483,6 +486,15 @@
   },
   "optClearLog": {
     "message": "Delete log file"
+  },
+  "optDonate": {
+    "message": "Support the project"
+  },
+  "optDonateHint": {
+    "message": "Blacklist-Tools is free. If it saves you time, you can support its development with a small donation on Liberapay."
+  },
+  "optDonateButton": {
+    "message": "♥ Donate on Liberapay …"
   },
   "optNoLog": {
     "message": "There is no log file yet – enable logging and click “Test connection”."
