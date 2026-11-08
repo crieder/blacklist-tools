@@ -27,7 +27,7 @@ h2 { font-size: 15px; margin: 22px 0 8px; padding-bottom: 4px; border-bottom: 1p
 .row { margin: 12px 0; }
 .row > label:not(.check) { display: block; font-weight: 600; margin-bottom: 4px; }
 .inline { display: flex; gap: 8px; align-items: center; }
-input[type="text"], input[type="password"], input[type="url"], select {
+input[type="text"], input[type="password"], input[type="url"], select, textarea {
   width: 100%;
   padding: 6px 8px;
   font: inherit;
@@ -72,3 +72,6 @@ button:disabled { opacity: .6; cursor: default; }
 .cookie-row { display: flex; align-items: center; gap: 10px; }
 .cookie-row .ok { color: var(--ok, green); }
 .cookie-row .err { color: var(--err); }
+
+textarea { resize: vertical; min-height: 6em; }
+#status { white-space: pre-line; }

@@ -19,15 +19,31 @@ const MENU = [
   { id: "donate", title: "menuDonate" },
 ];
 
+// Präfix der Einträge im Kontextmenü der Nachrichtenliste (IDs müssen eindeutig sein)
+const LIST_PREFIX = "list:";
+
 async function createMenus() {
   await browser.menus.removeAll();
+  // Button im Nachrichtenkopf (eine Nachricht) und Button in der Hauptsymbolleiste
+  // (funktioniert auch, wenn mehrere Nachrichten markiert sind – dann gibt es keinen Nachrichtenkopf).
   for (const item of MENU) {
     const props = {
       id: item.id,
-      contexts: ["message_display_action_menu"],
+      contexts: ["message_display_action_menu", "action_menu"],
       type: item.type || "normal",
     };
-    if (item.parentId) props.parentId = item.parentId;
+    if (item.title) props.title = t(item.title);
+    browser.menus.create(props);
+  }
+  // Rechtsklick in der Nachrichtenliste → Untermenü „Blacklist-Tools“
+  browser.menus.create({ id: "list-root", contexts: ["message_list"], title: t("extensionName") });
+  for (const item of MENU) {
+    const props = {
+      id: LIST_PREFIX + item.id,
+      parentId: "list-root",
+      contexts: ["message_list"],
+      type: item.type || "normal",
+    };
     if (item.title) props.title = t(item.title);
     browser.menus.create(props);
   }
@@ -111,15 +127,49 @@ async function displayedMessages(tabId) {
   return Array.isArray(result) ? result : result?.messages || [];
 }
 
-async function openDialog(params) {
-  const url = browser.runtime.getURL(
-    "dialog/dialog.html?" + new URLSearchParams(params).toString()
-  );
-  await browser.windows.create({ type: "popup", url, width: 560, height: 470 });
+/** Liest eine (ggf. seitenweise gelieferte) MessageList vollständig. */
+async function allMessages(list) {
+  if (!list) return [];
+  if (Array.isArray(list)) return list;
+  const result = [...(list.messages || [])];
+  let page = list;
+  while (page.id) {
+    page = await browser.messages.continueList(page.id);
+    result.push(...(page.messages || []));
+  }
+  return result;
+}
+
+/**
+ * Nachrichten, auf die sich ein Menüklick bezieht: im Kontextmenü der Liste die
+ * dort markierten, sonst die im Tab markierten bzw. angezeigten Nachrichten.
+ */
+async function targetMessages(info, tab) {
+  if (info.selectedMessages) {
+    const selected = await allMessages(info.selectedMessages);
+    if (selected.length) return selected;
+  }
+  if (!tab) return [];
+  if (tab.type === "mail") {
+    const selected = await allMessages(await browser.mailTabs.getSelectedMessages(tab.id).catch(() => null));
+    if (selected.length) return selected;
+  }
+  return displayedMessages(tab.id).catch(() => []);
+}
+
+async function openDialog(params, messages) {
+  const query = new URLSearchParams({ ...params, messageId: messages[0].id });
+  if (messages.length > 1) query.set("messageIds", messages.map(m => m.id).join(","));
+  const url = browser.runtime.getURL("dialog/dialog.html?" + query.toString());
+  await browser.windows.create({ type: "popup", url, width: 560, height: messages.length > 1 ? 620 : 470 });
 }
 
 browser.menus.onClicked.addListener(async (info, tab) => {
   try {
+    const menuItemId = String(info.menuItemId).startsWith(LIST_PREFIX)
+      ? String(info.menuItemId).slice(LIST_PREFIX.length)
+      : info.menuItemId;
+    info = { ...info, menuItemId };
     if (info.menuItemId === "options") {
       await browser.runtime.openOptionsPage();
       return;
@@ -130,7 +180,7 @@ browser.menus.onClicked.addListener(async (info, tab) => {
     }
     if (info.menuItemId === "blacklist-manage") {
       const params = new URLSearchParams();
-      const shown = tab ? await displayedMessages(tab.id).catch(() => []) : [];
+      const shown = await targetMessages(info, tab).catch(() => []);
       if (shown.length) params.set("messageId", shown[0].id);
       await browser.windows.create({
         type: "popup",
@@ -141,32 +191,33 @@ browser.menus.onClicked.addListener(async (info, tab) => {
       return;
     }
 
-    const messages = tab ? await displayedMessages(tab.id) : [];
+    const messages = await targetMessages(info, tab);
     if (!messages.length) {
       await notify(t("extensionName"), t("notifyNoMessage"));
       return;
     }
-    const message = messages[0];
-
     switch (info.menuItemId) {
       case "filter-sender":
       case "filter-subject":
       case "filter-body":
       case "ctx-filter-selection": {
-        const selection = info.selectionText || (await getSelectionText(tab.id));
-        // Markierung im Betreff/Absender liegt in der Kopfzeile, nicht im Nachrichtentext.
-        const headerSelection = await browser.spamFilterEditor
-          .getHeaderSelection(tab.id)
-          .catch(() => "");
-        const field =
-          info.menuItemId === "ctx-filter-selection"
-            ? "body"
-            : info.menuItemId.replace("filter-", "");
-        await openDialog({ mode: "filter", field, messageId: message.id, selection, headerSelection });
+        // Rechtsklick auf markierten Text betrifft immer nur die angezeigte Nachricht.
+        const targets = info.menuItemId === "ctx-filter-selection" ? messages.slice(0, 1) : messages;
+        const params = {
+          mode: "filter",
+          field: info.menuItemId === "ctx-filter-selection" ? "body" : info.menuItemId.replace("filter-", ""),
+        };
+        // Markierten Text gibt es nur bei einer einzelnen Nachricht.
+        if (targets.length === 1) {
+          params.selection = info.selectionText || (await getSelectionText(tab.id));
+          // Markierung im Betreff/Absender liegt in der Kopfzeile, nicht im Nachrichtentext.
+          params.headerSelection = await browser.spamFilterEditor.getHeaderSelection(tab.id).catch(() => "");
+        }
+        await openDialog(params, targets);
         break;
       }
       case "blacklist":
-        await openDialog({ mode: "blacklist", messageId: message.id });
+        await openDialog({ mode: "blacklist" }, messages);
         break;
       case "mark-spam":
         await markAsSpam(

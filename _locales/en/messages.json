@@ -227,6 +227,68 @@
   "markedAsJunk": {
     "message": "Message marked as junk."
   },
+  "dlgMultiTarget": {
+    "message": "$P1$ messages selected – one entry per message.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dlgMarkAfterMulti": {
+    "message": "Then mark the messages as junk"
+  },
+  "dlgSearchTexts": {
+    "message": "Search texts (one per line)"
+  },
+  "dlgAddressesToBlock": {
+    "message": "Addresses to block (one per line)"
+  },
+  "dlgMultiHint": {
+    "message": "You can shorten lines (e.g. to the domain) or delete them. Duplicates are added only once."
+  },
+  "dlgMultiBodyHint": {
+    "message": "Selected text cannot be taken over from several messages – enter the search texts yourself, one per line."
+  },
+  "hintRecipientMulti": {
+    "message": "Mail to these addresses will be rejected by the server."
+  },
+  "hintSenderMulti": {
+    "message": "Mail from these senders will be rejected by the server."
+  },
+  "statusProgress": {
+    "message": "Working … $P1$ of $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "multiResult": {
+    "message": "$P1$ added, $P2$ already present.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "multiErrors": {
+    "message": "Errors (nothing was marked as junk):"
+  },
+  "markedAsJunkMulti": {
+    "message": "$P1$ messages marked as junk.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
   "mgPlaceholder": {
     "message": "Search or enter a new address …"
   },

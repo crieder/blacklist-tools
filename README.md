@@ -19,6 +19,8 @@ Adds a **“Spam ▾”** button to the message header. Its menu offers:
 3. **Show ISPConfig blacklist** – all entries, sorted alphabetically, with search-as-you-type, paging, delete (with confirmation) and an *Add* button.
 4. **Mark as junk** – same as Thunderbird's own junk button (optionally marks as read and moves to the account's junk folder). Thunderbird's own button can be hidden in the settings.
 
+**Several messages at once:** the same menu is available as a button in the main toolbar and by right-clicking in the message list (“Blacklist-Tools”). With several messages selected, every function runs for each message: the dialog lists one entry per message (sender, subject or recipient address), which you can shorten or delete before confirming. Selected text can only be taken over from a single message.
+
 The ISPConfig part is optional and only useful if your mail is hosted on a server managed with [ISPConfig](https://www.ispconfig.org/).
 
 Languages: English, German.
@@ -87,6 +89,8 @@ Fügt im Nachrichtenkopf einen Button **„Spam ▾“** hinzu. Das Menü bietet
 2. **Auf ISPConfig-Blacklist setzen**: Sperrt eine Adresse unter *E-Mail → E-Mail-Blacklist* (Typ *Recipient* für verbrannte Aliase oder *Sender*).
 3. **ISPConfig-Blacklist anzeigen**: Alle Einträge alphabetisch, mit Suchfeld, Blättern, Löschen mit Bestätigung und „Add“-Button.
 4. **Als Spam markieren**: Wie der eingebaute Spam-Button. Der eingebaute Button lässt sich ausblenden.
+
+**Mehrere Nachrichten auf einmal:** Das Menü gibt es auch als Button in der Hauptsymbolleiste und per Rechtsklick in der Nachrichtenliste („Blacklist-Tools“). Bei mehreren markierten Nachrichten wird jede Funktion für jede Nachricht ausgeführt; der Dialog zeigt dafür eine Zeile pro Nachricht, die sich vorher kürzen oder löschen lässt.
 
 Der ISPConfig-Teil ist optional. Das Passwort liegt in der Thunderbird-Passwortverwaltung (Eintrag „ISPConfig (Blacklist-Tools)“). Beim Panel-Login verwaltet das Add-on das Sitzungs-Cookie selbst; es funktioniert also auch, wenn Thunderbird alle Cookies ablehnt. Bei Problemen hilft das Protokoll unter Einstellungen → Fehlersuche.
 

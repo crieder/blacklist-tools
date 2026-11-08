@@ -227,6 +227,68 @@
   "markedAsJunk": {
     "message": "Nachricht als Spam markiert."
   },
+  "dlgMultiTarget": {
+    "message": "$P1$ Nachrichten ausgewählt – ein Eintrag pro Nachricht.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dlgMarkAfterMulti": {
+    "message": "Nachrichten anschließend als Spam markieren"
+  },
+  "dlgSearchTexts": {
+    "message": "Suchtexte (einer pro Zeile)"
+  },
+  "dlgAddressesToBlock": {
+    "message": "Zu sperrende Adressen (eine pro Zeile)"
+  },
+  "dlgMultiHint": {
+    "message": "Zeilen lassen sich kürzen (z. B. auf die Domain) oder löschen. Doppelte Einträge werden nur einmal übernommen."
+  },
+  "dlgMultiBodyHint": {
+    "message": "Markierter Text kann bei mehreren Nachrichten nicht übernommen werden – Suchtexte bitte selbst eingeben, einen pro Zeile."
+  },
+  "hintRecipientMulti": {
+    "message": "Mails an diese Adressen werden vom Server abgewiesen."
+  },
+  "hintSenderMulti": {
+    "message": "Mails von diesen Absendern werden vom Server abgewiesen."
+  },
+  "statusProgress": {
+    "message": "Wird ausgeführt … $P1$ von $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "multiResult": {
+    "message": "$P1$ hinzugefügt, $P2$ bereits vorhanden.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "multiErrors": {
+    "message": "Fehler (es wurde nichts als Spam markiert):"
+  },
+  "markedAsJunkMulti": {
+    "message": "$P1$ Nachrichten als Spam markiert.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
   "mgPlaceholder": {
     "message": "Suchen oder neue Adresse eingeben …"
   },

@@ -122,7 +122,9 @@ Falls ATN die neuen Mozilla-Kategorien abfragt („data collection permissions�
 ## 7. Hinweise für die Prüfer / Notes to reviewers (Englisch einfügen)
 
 ```
-Changes in 2.1.4 (only change since 2.1.3): a donation link was added as the last item of the "Spam ▾" menu and as a button at the bottom of the settings page. Both call messenger.windows.openDefaultBrowser("https://liberapay.com/crieder/donate") on a user click only; no Experiment code was changed and no new permissions are requested.
+Changes in 2.1.5: the "Spam ▾" menu is now also available as a main toolbar button (manifest "action", type menu) and as a submenu in the message list context menu ("message_list" context), because the message header button is not shown when several messages are selected. With several messages selected, the filter and blacklist dialogs process one entry per message (messages from info.selectedMessages / mailTabs.getSelectedMessages); "Mark as junk" applies to all of them. No Experiment code was changed and no new permissions are requested.
+
+Changes in 2.1.4: a donation link was added as the last item of the "Spam ▾" menu and as a button at the bottom of the settings page. Both call messenger.windows.openDefaultBrowser("https://liberapay.com/crieder/donate") on a user click only; no Experiment code was changed and no new permissions are requested.
 
 Blacklist-Tools is a plain, unminified MailExtension (Manifest V3). There is no build step for the code; the only generated files are _locales/*/messages.json, created from tools/locales.py (included in the source repository, not needed at runtime).
 
