@@ -89,6 +89,26 @@ MESSAGES = {
     "filterAdded": ("Added to filter “$1” ($2 conditions).", "Zu Filter „$1“ hinzugefügt ($2 Bedingungen)."),
     "markedAsJunk": ("Message marked as junk.", "Nachricht als Spam markiert."),
 
+    # Mehrere Nachrichten
+    "dlgMultiTarget": ("$1 messages selected – one entry per message.", "$1 Nachrichten ausgewählt – ein Eintrag pro Nachricht."),
+    "dlgMarkAfterMulti": ("Then mark the messages as junk", "Nachrichten anschließend als Spam markieren"),
+    "dlgSearchTexts": ("Search texts (one per line)", "Suchtexte (einer pro Zeile)"),
+    "dlgAddressesToBlock": ("Addresses to block (one per line)", "Zu sperrende Adressen (eine pro Zeile)"),
+    "dlgMultiHint": (
+        "You can shorten lines (e.g. to the domain) or delete them. Duplicates are added only once.",
+        "Zeilen lassen sich kürzen (z. B. auf die Domain) oder löschen. Doppelte Einträge werden nur einmal übernommen.",
+    ),
+    "dlgMultiBodyHint": (
+        "Selected text cannot be taken over from several messages – enter the search texts yourself, one per line.",
+        "Markierter Text kann bei mehreren Nachrichten nicht übernommen werden – Suchtexte bitte selbst eingeben, einen pro Zeile.",
+    ),
+    "hintRecipientMulti": ("Mail to these addresses will be rejected by the server.", "Mails an diese Adressen werden vom Server abgewiesen."),
+    "hintSenderMulti": ("Mail from these senders will be rejected by the server.", "Mails von diesen Absendern werden vom Server abgewiesen."),
+    "statusProgress": ("Working … $1 of $2", "Wird ausgeführt … $1 von $2"),
+    "multiResult": ("$1 added, $2 already present.", "$1 hinzugefügt, $2 bereits vorhanden."),
+    "multiErrors": ("Errors (nothing was marked as junk):", "Fehler (es wurde nichts als Spam markiert):"),
+    "markedAsJunkMulti": ("$1 messages marked as junk.", "$1 Nachrichten als Spam markiert."),
+
     # Blacklist-Fenster
     "mgPlaceholder": ("Search or enter a new address …", "Suchen oder neue Adresse eingeben …"),
     "mgTypeTitle": ("Type for a new entry", "Typ für neuen Eintrag"),
