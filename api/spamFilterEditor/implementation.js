@@ -363,6 +363,42 @@ this.spamFilterEditor = class extends ExtensionCommon.ExtensionAPI {
           return exists;
         },
 
+        /**
+         * Setzt Hilfe-Tooltips auf die gerade angezeigten Menüeinträge des Add-ons.
+         * Die menus-API kennt keine Tooltips; die Einträge tragen die ID
+         * "<widgetId>-menuitem-_<menuItemId>" (ext-menus.js) und liegen je nach
+         * Menü im Hauptfenster, in about:3pane oder in about:message.
+         */
+        async setMenuTooltips(tooltips) {
+          const prefix = `${ExtensionCommon.makeWidgetId(context.extension.id)}-menuitem-_`;
+          const documents = [];
+          const collect = doc => {
+            documents.push(doc);
+            for (const browser of doc.querySelectorAll("browser")) {
+              try {
+                const inner = browser.contentDocument;
+                if (inner && !documents.includes(inner)) collect(inner);
+              } catch (e) {
+                // Fremde/entfernte Inhalte überspringen
+              }
+            }
+          };
+          for (const win of Services.wm.getEnumerator(null)) {
+            collect(win.document);
+          }
+          let count = 0;
+          for (const doc of documents) {
+            for (const [id, text] of Object.entries(tooltips || {})) {
+              const el = doc.getElementById(prefix + id);
+              if (el) {
+                el.setAttribute("tooltiptext", String(text));
+                count++;
+              }
+            }
+          }
+          return count;
+        },
+
         async setNativeJunkButtonHidden(hidden) {
           setJunkButtonHidden(!!hidden);
         },
