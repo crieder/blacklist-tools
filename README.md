@@ -19,6 +19,8 @@ Adds a **“Spam ▾”** button to the message header. Its menu offers:
 3. **Show ISPConfig blacklist** – all entries, sorted alphabetically, with search-as-you-type, paging, delete (with confirmation) and an *Add* button.
 4. **Mark as junk** – same as Thunderbird's own junk button (optionally marks as read and moves to the account's junk folder). Thunderbird's own button can be hidden in the settings.
 
+**Right-click = no dialog:** right-click one of the “Add … to filter” items or “Add to ISPConfig blacklist” to run it directly with the suggested values (last used filter / blacklist type, selected text, your “mark as junk” settings). The result is shown as a notification; your own mailbox addresses are never blocked this way. Hovering over an item shows this as a tooltip.
+
 **Several messages at once:** the same menu is available as a button in the main toolbar and by right-clicking in the message list (“Blacklist-Tools”). With several messages selected, every function runs for each message: the dialog lists one entry per message (sender, subject or recipient address), which you can shorten or delete before confirming. Selected text can only be taken over from a single message.
 
 The ISPConfig part is optional and only useful if your mail is hosted on a server managed with [ISPConfig](https://www.ispconfig.org/).
@@ -89,6 +91,8 @@ Fügt im Nachrichtenkopf einen Button **„Spam ▾“** hinzu. Das Menü bietet
 2. **Auf ISPConfig-Blacklist setzen**: Sperrt eine Adresse unter *E-Mail → E-Mail-Blacklist* (Typ *Recipient* für verbrannte Aliase oder *Sender*).
 3. **ISPConfig-Blacklist anzeigen**: Alle Einträge alphabetisch, mit Suchfeld, Blättern, Löschen mit Bestätigung und „Add“-Button.
 4. **Als Spam markieren**: Wie der eingebaute Spam-Button. Der eingebaute Button lässt sich ausblenden.
+
+**Rechtsklick = ohne Dialog:** Ein Rechtsklick auf „Filter um … ergänzen“ oder „Auf ISPConfig-Blacklist setzen“ führt die Aktion direkt mit den vorgeschlagenen Werten aus (zuletzt verwendeter Filter bzw. Blacklist-Typ, markierter Text, Spam-Einstellungen). Das Ergebnis erscheint als Benachrichtigung; eigene Postfachadressen werden so nie gesperrt. Ein Tooltip beim Darüberfahren erklärt das.
 
 **Mehrere Nachrichten auf einmal:** Das Menü gibt es auch als Button in der Hauptsymbolleiste und per Rechtsklick in der Nachrichtenliste („Blacklist-Tools“). Bei mehreren markierten Nachrichten wird jede Funktion für jede Nachricht ausgeführt; der Dialog zeigt dafür eine Zeile pro Nachricht, die sich vorher kürzen oder löschen lässt.
 

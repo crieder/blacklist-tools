@@ -281,6 +281,63 @@
   "multiErrors": {
     "message": "Errors (nothing was marked as junk):"
   },
+  "quickTitleFilter": {
+    "message": "Blacklist-Tools – filter “$P1$”",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "quickTitleBlacklist": {
+    "message": "Blacklist-Tools – ISPConfig blacklist ($P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "quickNoSelection": {
+    "message": "No text is selected. Select text in the message first, or use a left click to enter the search text."
+  },
+  "quickNoAddress": {
+    "message": "No address to block was found (your own mailbox addresses are never blocked without the dialog)."
+  },
+  "tipFilterSender": {
+    "message": "Left click: open the dialog. Right click: add the sender address (or the selected part of it) directly to filter “$P1$”, without a dialog.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tipFilterSubject": {
+    "message": "Left click: open the dialog. Right click: add the subject (or the selected part of it) directly to filter “$P1$”, without a dialog.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tipFilterBody": {
+    "message": "Left click: open the dialog. Right click: add the selected text directly to filter “$P1$”, without a dialog.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tipBlacklist": {
+    "message": "Left click: open the dialog. Right click: block the suggested address directly as type “$P1$”, without a dialog (never your own mailbox addresses).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tipThenJunk": {
+    "message": "Then marks the message(s) as junk."
+  },
   "markedAsJunkMulti": {
     "message": "$P1$ messages marked as junk.",
     "placeholders": {

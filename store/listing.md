@@ -122,13 +122,15 @@ Falls ATN die neuen Mozilla-Kategorien abfragt („data collection permissions�
 ## 7. Hinweise für die Prüfer / Notes to reviewers (Englisch einfügen)
 
 ```
+Changes in 2.1.6: right-clicking the "Add … to filter" / "Add to ISPConfig blacklist" menu items (info.button === 2 in menus.onClicked) runs the action directly with the values the dialog would suggest and reports the result via notifications; left click still opens the dialog. lib/ispconfig.js is now also loaded in the background page for this. New Experiment function setMenuTooltips(): called from menus.onShown, it only sets the "tooltiptext" attribute on the add-on's own menu items (element IDs "<widgetId>-menuitem-_<id>" created by ext-menus.js), because the menus API has no tooltip property. No new permissions.
+
 Changes in 2.1.5: the "Spam ▾" menu is now also available as a main toolbar button (manifest "action", type menu) and as a submenu in the message list context menu ("message_list" context), because the message header button is not shown when several messages are selected. With several messages selected, the filter and blacklist dialogs process one entry per message (messages from info.selectedMessages / mailTabs.getSelectedMessages); "Mark as junk" applies to all of them. No Experiment code was changed and no new permissions are requested.
 
 Changes in 2.1.4: a donation link was added as the last item of the "Spam ▾" menu and as a button at the bottom of the settings page. Both call messenger.windows.openDefaultBrowser("https://liberapay.com/crieder/donate") on a user click only; no Experiment code was changed and no new permissions are requested.
 
 Blacklist-Tools is a plain, unminified MailExtension (Manifest V3). There is no build step for the code; the only generated files are _locales/*/messages.json, created from tools/locales.py (included in the source repository, not needed at runtime).
 
-The Experiment API "spamFilterEditor" (api/spamFilterEditor/implementation.js, ~440 lines, commented) is needed because Thunderbird has no WebExtension API for these tasks:
+The Experiment API "spamFilterEditor" (api/spamFilterEditor/implementation.js, ~480 lines, commented) is needed because Thunderbird has no WebExtension API for these tasks:
 
 1. Message filters – getFilterNames() and addCondition() use nsIMsgIncomingServer.getFilterList(), nsIMsgFilter.createTerm()/appendTerm() and nsIMsgFilterList.saveToDefaultFile(), exactly as Thunderbird's own filter editor does. Only "contains" conditions are appended to filters that already exist; nothing is deleted.
 
@@ -140,7 +142,9 @@ The Experiment API "spamFilterEditor" (api/spamFilterEditor/implementation.js, ~
 
 5. Password storage – setIspPassword()/getIspPassword()/hasIspPassword() store the ISPConfig password in Thunderbird's login manager (searchLoginsAsync, addLoginAsync, removeLoginAsync) under the realm "ISPConfig (Blacklist-Tools)" instead of storage.local.
 
-6. Optional debug log – writeLog()/clearLog()/revealLog() write blacklist-tools.log to the profile folder only when the user enables logging. Passwords, session IDs and CSRF tokens are masked before writing.
+6. Menu tooltips – setMenuTooltips() sets the tooltiptext attribute on the add-on's own menu items (looked up by their ext-menus element IDs in the main window, about:3pane and about:message). Nothing else in the UI is touched.
+
+7. Optional debug log – writeLog()/clearLog()/revealLog() write blacklist-tools.log to the profile folder only when the user enables logging. Passwords, session IDs and CSRF tokens are masked before writing.
 
 No remote code is loaded, no data is sent anywhere except the user-configured ISPConfig server. The donation link only opens a web page in the user's default browser when clicked; nothing is transmitted by the add-on.
 

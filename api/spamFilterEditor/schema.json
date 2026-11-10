@@ -16,6 +16,19 @@
         ]
       },
       {
+        "name": "setMenuTooltips",
+        "type": "function",
+        "async": true,
+        "description": "Sets help tooltips on the add-on's currently shown menu items (the menus API has no tooltips). Keys are menu item IDs.",
+        "parameters": [
+          {
+            "name": "tooltips",
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        ]
+      },
+      {
         "name": "getHeaderSelection",
         "type": "function",
         "async": true,

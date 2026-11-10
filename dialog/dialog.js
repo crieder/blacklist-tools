@@ -12,8 +12,12 @@ const messageIds = (params.get("messageIds") || params.get("messageId") || "")
 const messageId = messageIds[0];
 // Mehrere Nachrichten: ein Eintrag pro Nachricht, je Zeile einer (Markierungen werden nicht übernommen)
 const multi = messageIds.length > 1;
-const selection = multi ? "" : (params.get("selection") || "").trim();
-const headerSelection = multi ? "" : (params.get("headerSelection") || "").trim();
+const sel = multi
+  ? {}
+  : {
+      selection: (params.get("selection") || "").trim(),
+      headerSelection: (params.get("headerSelection") || "").trim(),
+    };
 
 // items: [{ message, sender, recipients? }] – bei einer Nachricht genau ein Eintrag
 const state = { settings: null, message: null, sender: null, items: [] };
@@ -28,21 +32,6 @@ function closeSoon(ms = 1400) {
     const win = await browser.windows.getCurrent();
     browser.windows.remove(win.id);
   }, ms);
-}
-
-/** Entfernt leere Einträge und Duplikate (ohne Groß-/Kleinschreibung), Reihenfolge bleibt. */
-function unique(list) {
-  const seen = new Set();
-  const result = [];
-  for (const raw of list) {
-    const value = String(raw || "").trim();
-    const key = value.toLowerCase();
-    if (value && !seen.has(key)) {
-      seen.add(key);
-      result.push(value);
-    }
-  }
-  return result;
 }
 
 function setLines(lines) {
@@ -87,15 +76,6 @@ function setChips(entries, label = "") {
   }
 }
 
-/**
- * Markierung nur übernehmen, wenn sie zum gewählten Feld passt.
- * Zuerst die Markierung in der Kopfzeile (Betreff/Absender), dann die im Nachrichtentext.
- */
-function fittingSelection(text) {
-  const lower = String(text || "").toLowerCase();
-  return [headerSelection, selection].find(s => s && lower.includes(s.toLowerCase())) || "";
-}
-
 function senderEmails() {
   return state.items.map(i => i.sender.email);
 }
@@ -104,10 +84,10 @@ function fillForField(field) {
   setStatus("");
   if (multi) {
     if (field === "sender") {
-      setLines(senderEmails());
+      setLines(defaultFilterValues(state.items, "sender"));
       setChips([[t("chipAddress"), senderEmails()], [t("chipDomain"), senderEmails().map(domainOf)]], t("chipsUse"));
     } else if (field === "subject") {
-      setLines(state.items.map(i => i.message.subject));
+      setLines(defaultFilterValues(state.items, "subject"));
       setChips([]);
     } else {
       setLines([]);
@@ -119,15 +99,15 @@ function fillForField(field) {
   const subject = state.message.subject || "";
   const email = state.sender.email;
   if (field === "sender") {
-    $("value").value = fittingSelection(state.message.author) || email;
+    $("value").value = defaultFilterValues(state.items, "sender", sel)[0];
     setChips([[t("chipAddress"), email], [t("chipDomain"), domainOf(email)]]);
   } else if (field === "subject") {
-    $("value").value = fittingSelection(subject) || subject;
+    $("value").value = defaultFilterValues(state.items, "subject", sel)[0];
     setChips([[t("chipWholeSubject"), subject]]);
   } else {
-    $("value").value = selection;
+    $("value").value = defaultFilterValues(state.items, "body", sel)[0];
     setChips([]);
-    if (!selection) {
+    if (!sel.selection) {
       setStatus(t("dlgTipSelect"));
     }
   }
@@ -161,20 +141,20 @@ function fillBlacklist(type) {
   if (type === "recipient") {
     // Eigene Postfachadressen werden weder vorgeschlagen noch vorausgewählt.
     if (multi) {
-      setLines(state.items.map(i => i.recipients.find(a => !isOwn(a))));
+      setLines(defaultBlacklistValues(state.items, "recipient", state.own));
       setChips([]);
     } else {
       const foreign = state.items[0].recipients.filter(a => !isOwn(a));
-      $("value").value = foreign[0] || "";
+      $("value").value = defaultBlacklistValues(state.items, "recipient", state.own)[0];
       setChips(foreign.length > 1 ? foreign.map(a => [a, a]) : [], t("chipsOtherRecipients"));
     }
     $("hint").textContent = t(multi ? "hintRecipientMulti" : "hintRecipient");
   } else {
     if (multi) {
-      setLines(senderEmails());
+      setLines(defaultBlacklistValues(state.items, "sender"));
       setChips([[t("chipAddress"), senderEmails()], [t("chipDomain"), senderEmails().map(domainOf)]], t("chipsUse"));
     } else {
-      $("value").value = state.sender.email;
+      $("value").value = defaultBlacklistValues(state.items, "sender")[0];
       setChips([[t("chipAddress"), state.sender.email], [t("chipDomain"), domainOf(state.sender.email)]], t("chipsUse"));
     }
     $("hint").textContent = t(multi ? "hintSenderMulti" : "hintSender");
@@ -202,10 +182,7 @@ async function loadFilters() {
 async function init() {
   localizePage();
   state.settings = await loadSettings();
-  for (const id of messageIds) {
-    const message = await browser.messages.get(id);
-    state.items.push({ message, sender: await parseAddress(message.author) });
-  }
+  state.items = await loadMessageItems(messageIds);
   state.message = state.items[0].message;
   state.sender = state.items[0].sender;
 

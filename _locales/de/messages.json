@@ -281,6 +281,63 @@
   "multiErrors": {
     "message": "Fehler (es wurde nichts als Spam markiert):"
   },
+  "quickTitleFilter": {
+    "message": "Blacklist-Tools – Filter „$P1$“",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "quickTitleBlacklist": {
+    "message": "Blacklist-Tools – ISPConfig-Blacklist ($P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "quickNoSelection": {
+    "message": "Es ist kein Text markiert. Erst Text in der Nachricht markieren oder per Linksklick den Suchtext eingeben."
+  },
+  "quickNoAddress": {
+    "message": "Keine zu sperrende Adresse gefunden (eigene Postfachadressen werden ohne Dialog nie gesperrt)."
+  },
+  "tipFilterSender": {
+    "message": "Linksklick: Dialog öffnen. Rechtsklick: Absenderadresse (bzw. den markierten Teil) ohne Dialog direkt zum Filter „$P1$“ hinzufügen.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tipFilterSubject": {
+    "message": "Linksklick: Dialog öffnen. Rechtsklick: Betreff (bzw. den markierten Teil) ohne Dialog direkt zum Filter „$P1$“ hinzufügen.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tipFilterBody": {
+    "message": "Linksklick: Dialog öffnen. Rechtsklick: markierten Text ohne Dialog direkt zum Filter „$P1$“ hinzufügen.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tipBlacklist": {
+    "message": "Linksklick: Dialog öffnen. Rechtsklick: vorgeschlagene Adresse ohne Dialog direkt als Typ „$P1$“ sperren (nie eigene Postfachadressen).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tipThenJunk": {
+    "message": "Danach als Spam markieren."
+  },
   "markedAsJunkMulti": {
     "message": "$P1$ Nachrichten als Spam markiert.",
     "placeholders": {

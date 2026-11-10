@@ -107,6 +107,34 @@ MESSAGES = {
     "statusProgress": ("Working … $1 of $2", "Wird ausgeführt … $1 von $2"),
     "multiResult": ("$1 added, $2 already present.", "$1 hinzugefügt, $2 bereits vorhanden."),
     "multiErrors": ("Errors (nothing was marked as junk):", "Fehler (es wurde nichts als Spam markiert):"),
+    # Rechtsklick: ohne Dialog
+    "quickTitleFilter": ("Blacklist-Tools – filter “$1”", "Blacklist-Tools – Filter „$1“"),
+    "quickTitleBlacklist": ("Blacklist-Tools – ISPConfig blacklist ($1)", "Blacklist-Tools – ISPConfig-Blacklist ($1)"),
+    "quickNoSelection": (
+        "No text is selected. Select text in the message first, or use a left click to enter the search text.",
+        "Es ist kein Text markiert. Erst Text in der Nachricht markieren oder per Linksklick den Suchtext eingeben.",
+    ),
+    "quickNoAddress": (
+        "No address to block was found (your own mailbox addresses are never blocked without the dialog).",
+        "Keine zu sperrende Adresse gefunden (eigene Postfachadressen werden ohne Dialog nie gesperrt).",
+    ),
+    "tipFilterSender": (
+        "Left click: open the dialog. Right click: add the sender address (or the selected part of it) directly to filter “$1”, without a dialog.",
+        "Linksklick: Dialog öffnen. Rechtsklick: Absenderadresse (bzw. den markierten Teil) ohne Dialog direkt zum Filter „$1“ hinzufügen.",
+    ),
+    "tipFilterSubject": (
+        "Left click: open the dialog. Right click: add the subject (or the selected part of it) directly to filter “$1”, without a dialog.",
+        "Linksklick: Dialog öffnen. Rechtsklick: Betreff (bzw. den markierten Teil) ohne Dialog direkt zum Filter „$1“ hinzufügen.",
+    ),
+    "tipFilterBody": (
+        "Left click: open the dialog. Right click: add the selected text directly to filter “$1”, without a dialog.",
+        "Linksklick: Dialog öffnen. Rechtsklick: markierten Text ohne Dialog direkt zum Filter „$1“ hinzufügen.",
+    ),
+    "tipBlacklist": (
+        "Left click: open the dialog. Right click: block the suggested address directly as type “$1”, without a dialog (never your own mailbox addresses).",
+        "Linksklick: Dialog öffnen. Rechtsklick: vorgeschlagene Adresse ohne Dialog direkt als Typ „$1“ sperren (nie eigene Postfachadressen).",
+    ),
+    "tipThenJunk": ("Then marks the message(s) as junk.", "Danach als Spam markieren."),
     "markedAsJunkMulti": ("$1 messages marked as junk.", "$1 Nachrichten als Spam markiert."),
 
     # Blacklist-Fenster
