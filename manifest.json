@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "homepage_url": "https://github.com/crieder/blacklist-tools",
@@ -9,6 +9,7 @@
     "gecko": {
       "id": "{4346d631-753f-47b3-84ca-a3d0b8fecebb}",
       "strict_min_version": "128.0",
+      "update_url": "https://raw.githubusercontent.com/crieder/blacklist-tools/main/updates.json",
       "strict_max_version": "159.*"
     }
   },

@@ -8,6 +8,8 @@
 
 1. Download **[blacklist-tools.xpi](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)**.
 2. In Thunderbird open *Add-ons and Themes* (Tools menu), click the gear icon → *Install Add-on From File …* and choose the downloaded file.
+
+Blacklist-Tools is distributed here on GitHub, not on addons.thunderbird.net: Thunderbird's add-on site currently does not review new add-ons that need an Experiment API (required for editing message filters). From version 2.1.7 on, Thunderbird updates the add-on automatically from this repository; if you installed an older version, install 2.1.7 once by hand.
 3. Open the add-on's settings (the “Spam ▾” menu → *Settings …*).
 
 Requires Thunderbird 128 or newer.
@@ -84,6 +86,8 @@ License: MPL 2.0.
 # Blacklist-Tools für Thunderbird (Deutsch)
 
 **[⬇ Aktuelle Version herunterladen (.xpi)](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)** – in Thunderbird unter *Add-ons und Themes* → Zahnrad → *Add-on aus Datei installieren …* auswählen. Benötigt Thunderbird 128 oder neuer.
+
+Das Add-on wird hier auf GitHub verteilt, nicht auf addons.thunderbird.net: Die Add-on-Seite von Thunderbird prüft derzeit keine neuen Add-ons mit Experiment-API (nötig zum Bearbeiten von Nachrichtenfiltern). Ab Version 2.1.7 aktualisiert Thunderbird das Add-on automatisch aus diesem Repository; ältere Versionen bitte einmal von Hand durch 2.1.7 ersetzen.
 
 Fügt im Nachrichtenkopf einen Button **„Spam ▾“** hinzu. Das Menü bietet:
 
