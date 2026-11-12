@@ -30,7 +30,7 @@
     "message": "Einstellungen …"
   },
   "menuDonate": {
-    "message": "♥ Blacklist-Tools unterstützen (freiwillige Spende) …"
+    "message": "♥ Blacklist-Tools unterstützen (freiwillig) …"
   },
   "menuCtxFilterSelection": {
     "message": "Markierung zu Filter hinzufügen …"
@@ -607,10 +607,10 @@
     "message": "Logdatei löschen"
   },
   "optDonate": {
-    "message": "Projekt unterstützen"
+    "message": "Gefällt Dir Blacklist-Tools?"
   },
   "optDonateHint": {
-    "message": "Blacklist-Tools ist kostenlos. Wenn es Dir Zeit spart, kannst Du die Weiterentwicklung freiwillig mit einer Spende auf Liberapay unterstützen. Eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates."
+    "message": "Blacklist-Tools bleibt kostenlos. Wenn es Dir Zeit und Ärger spart, freuen wir uns über eine kleine, freiwillige Spende auf Liberapay. Eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates."
   },
   "optAbout": {
     "message": "Über"
@@ -631,7 +631,7 @@
     "message": "Thunderbird ist eine Marke von Mozilla; ISPConfig ist eine Marke der jeweiligen Inhaber. Blacklist-Tools ist ein unabhängiges Produkt und wird von diesen weder unterstützt noch geprüft."
   },
   "optDonateButton": {
-    "message": "♥ Auf Liberapay spenden …"
+    "message": "Auf Liberapay unterstützen …"
   },
   "optNoLog": {
     "message": "Es gibt noch keine Logdatei – Protokoll einschalten und „Verbindung testen“ klicken."

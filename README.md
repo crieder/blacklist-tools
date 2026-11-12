@@ -2,7 +2,7 @@
 
 Provided by **Software.Solutions.ForYou.at** · [Product page](https://software.solutions.foryou.at/blacklist-tools/) · [Imprint](https://software.solutions.foryou.at/impressum/)
 
-**[⬇ Download the latest version (.xpi)](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)** · [All releases](https://github.com/crieder/blacklist-tools/releases) · [Support the project (voluntary donation)](https://liberapay.com/crieder/donate)
+**[⬇ Download the latest version (.xpi)](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)** · [All releases](https://github.com/crieder/blacklist-tools/releases) · [<img src="icons/heart.svg" width="16" height="16" alt=""> Support the project (voluntary)](https://liberapay.com/crieder/donate)
 
 *Deutsche Beschreibung weiter unten.*
 
