@@ -30,7 +30,7 @@
     "message": "Einstellungen …"
   },
   "menuDonate": {
-    "message": "♥ Blacklist-Tools unterstützen (Spende) …"
+    "message": "♥ Blacklist-Tools unterstützen (freiwillige Spende) …"
   },
   "menuCtxFilterSelection": {
     "message": "Markierung zu Filter hinzufügen …"
@@ -610,7 +610,25 @@
     "message": "Projekt unterstützen"
   },
   "optDonateHint": {
-    "message": "Blacklist-Tools ist kostenlos. Wenn es Ihnen Zeit spart, können Sie die Weiterentwicklung mit einer kleinen Spende auf Liberapay unterstützen."
+    "message": "Blacklist-Tools ist kostenlos. Wenn es Ihnen Zeit spart, können Sie die Weiterentwicklung freiwillig mit einer Spende auf Liberapay unterstützen. Eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates."
+  },
+  "optAbout": {
+    "message": "Über"
+  },
+  "optAboutText": {
+    "message": "Blacklist-Tools – ein Add-on für Thunderbird von Software.Solutions.ForYou.at. Kostenlos und quelloffen (MPL 2.0), ohne Gewähr."
+  },
+  "optAboutProduct": {
+    "message": "Produktseite …"
+  },
+  "optAboutImprint": {
+    "message": "Impressum …"
+  },
+  "optAboutPrivacy": {
+    "message": "Datenschutz …"
+  },
+  "optAboutTrademarks": {
+    "message": "Thunderbird ist eine Marke von Mozilla; ISPConfig ist eine Marke der jeweiligen Inhaber. Blacklist-Tools ist ein unabhängiges Produkt und wird von diesen weder unterstützt noch geprüft."
   },
   "optDonateButton": {
     "message": "♥ Auf Liberapay spenden …"

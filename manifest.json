@@ -1,10 +1,14 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
-  "homepage_url": "https://github.com/crieder/blacklist-tools",
+  "homepage_url": "https://software.solutions.foryou.at/blacklist-tools/",
+  "developer": {
+    "name": "Software.Solutions.ForYou.at",
+    "url": "https://software.solutions.foryou.at/blacklist-tools/"
+  },
   "browser_specific_settings": {
     "gecko": {
       "id": "{4346d631-753f-47b3-84ca-a3d0b8fecebb}",

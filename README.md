@@ -1,6 +1,8 @@
-# Blacklist-Tools for Thunderbird
+# Blacklist-Tools – an add-on for Thunderbird
 
-**[⬇ Download the latest version (.xpi)](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)** · [All releases](https://github.com/crieder/blacklist-tools/releases) · [Support the project on Liberapay](https://liberapay.com/crieder/donate)
+Provided by **Software.Solutions.ForYou.at** · [Product page](https://software.solutions.foryou.at/blacklist-tools/) · [Imprint](https://software.solutions.foryou.at/impressum/)
+
+**[⬇ Download the latest version (.xpi)](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)** · [All releases](https://github.com/crieder/blacklist-tools/releases) · [Support the project (voluntary donation)](https://liberapay.com/crieder/donate)
 
 *Deutsche Beschreibung weiter unten.*
 
@@ -12,7 +14,7 @@
 
 Requires Thunderbird 128 or newer.
 
-Blacklist-Tools is distributed here on GitHub, not on addons.thunderbird.net: Thunderbird's add-on site currently does not review new add-ons that need an Experiment API (required for editing message filters). From version 2.1.7 on, Thunderbird updates the add-on automatically from this repository; if you installed an older version, install 2.1.7 once by hand.
+Blacklist-Tools is distributed here on GitHub, not on addons.thunderbird.net: Thunderbird's add-on site currently does not review new add-ons that need an Experiment API (required for editing message filters). From version 2.1.7 on, Thunderbird updates the add-on automatically from this repository; if you installed an older version, install 2.1.7 or newer once by hand. The file is not reviewed by Mozilla.
 
 Adds a **“Spam ▾”** button to the message header. Its menu offers:
 
@@ -52,11 +54,11 @@ Thunderbird can block Experiment add-ons via `extensions.experiments.suppressed`
 
 ## Support the project
 
-Blacklist-Tools is free. If it saves you time, you can support its development on **[Liberapay](https://liberapay.com/crieder/donate)**. Bug reports and ideas are welcome as [GitHub issues](https://github.com/crieder/blacklist-tools/issues).
+Blacklist-Tools is free. If it saves you time, you can support its development with a voluntary donation on **[Liberapay](https://liberapay.com/crieder/donate)**; a donation does not entitle you to features, support or updates. Bug reports and ideas are welcome as [GitHub issues](https://github.com/crieder/blacklist-tools/issues).
 
 ## Privacy
 
-See [PRIVACY.md](PRIVACY.md). In short: the add-on only talks to the ISPConfig server *you* enter. Nothing is sent to the developer or anyone else.
+See [PRIVACY.md](PRIVACY.md). In short: the add-on only talks to the ISPConfig server *you* enter. Nothing is sent to us or anyone else. Downloads and update checks are served by GitHub.
 
 ## Building
 
@@ -79,15 +81,30 @@ creates `dist/blacklist-tools-<version>.xpi`. All texts live in `tools/locales.p
 | `api/spamFilterEditor/` | Experiment API (Thunderbird internals) |
 | `tools/` | translation source and checks |
 
-License: MPL 2.0.
+## Disclaimer
+
+Blacklist-Tools is free and provided as is, at your own risk. Liability is excluded as far as the law permits; liability for intent and gross negligence and other mandatory liability remain unaffected. Please note in particular:
+
+- The add-on uses an Experiment API with access to Thunderbird internals (message filters, password manager). Back up your Thunderbird profile, especially `msgFilterRules.dat`, before larger changes.
+- The ISPConfig panel login fills in the web form like a browser. Check whether your hoster's terms allow this; a hoster may block accounts for automated access.
+- Blocked addresses and filter conditions can also catch legitimate mail.
+- There is no guarantee of compatibility with future Thunderbird or ISPConfig versions (currently tested up to Thunderbird 159).
+
+## Trademarks
+
+Thunderbird is a trademark of Mozilla; ISPConfig is a trademark of its respective owners. Blacklist-Tools is an independent product and is neither endorsed nor reviewed by them.
+
+Copyright © 2026 Software.Solutions.ForYou.at. License: [MPL 2.0](LICENSE).
 
 ---
 
-# Blacklist-Tools für Thunderbird (Deutsch)
+# Blacklist-Tools – ein Add-on für Thunderbird (Deutsch)
+
+Anbieter: **Software.Solutions.ForYou.at** · [Produktseite](https://software.solutions.foryou.at/blacklist-tools/) · [Impressum](https://software.solutions.foryou.at/impressum/)
 
 **[⬇ Aktuelle Version herunterladen (.xpi)](https://github.com/crieder/blacklist-tools/releases/latest/download/blacklist-tools.xpi)** – in Thunderbird unter *Add-ons und Themes* → Zahnrad → *Add-on aus Datei installieren …* auswählen. Benötigt Thunderbird 128 oder neuer.
 
-Das Add-on wird hier auf GitHub verteilt, nicht auf addons.thunderbird.net: Die Add-on-Seite von Thunderbird prüft derzeit keine neuen Add-ons mit Experiment-API (nötig zum Bearbeiten von Nachrichtenfiltern). Ab Version 2.1.7 aktualisiert Thunderbird das Add-on automatisch aus diesem Repository; ältere Versionen bitte einmal von Hand durch 2.1.7 ersetzen.
+Das Add-on wird hier auf GitHub verteilt, nicht auf addons.thunderbird.net: Die Add-on-Seite von Thunderbird prüft derzeit keine neuen Add-ons mit Experiment-API (nötig zum Bearbeiten von Nachrichtenfiltern). Ab Version 2.1.7 aktualisiert Thunderbird das Add-on automatisch aus diesem Repository; ältere Versionen bitte einmal von Hand durch 2.1.7 oder neuer ersetzen. Die Datei wird nicht von Mozilla geprüft.
 
 Fügt im Nachrichtenkopf einen Button **„Spam ▾“** hinzu. Das Menü bietet:
 
@@ -102,4 +119,15 @@ Fügt im Nachrichtenkopf einen Button **„Spam ▾“** hinzu. Das Menü bietet
 
 Der ISPConfig-Teil ist optional. Das Passwort liegt in der Thunderbird-Passwortverwaltung (Eintrag „ISPConfig (Blacklist-Tools)“). Beim Panel-Login verwaltet das Add-on das Sitzungs-Cookie selbst; es funktioniert also auch, wenn Thunderbird alle Cookies ablehnt. Bei Problemen hilft das Protokoll unter Einstellungen → Fehlersuche.
 
-Das Add-on ist kostenlos. Wer die Entwicklung unterstützen möchte: **[Liberapay](https://liberapay.com/crieder/donate)**. Fehler und Wünsche bitte als [GitHub-Issue](https://github.com/crieder/blacklist-tools/issues).
+Das Add-on ist kostenlos. Wer die Entwicklung unterstützen möchte, kann freiwillig auf **[Liberapay](https://liberapay.com/crieder/donate)** spenden; eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates. Fehler und Wünsche bitte als [GitHub-Issue](https://github.com/crieder/blacklist-tools/issues). Datenschutz: [PRIVACY.md](PRIVACY.md).
+
+**Haftungshinweis:** Blacklist-Tools ist kostenlos, die Nutzung erfolgt auf Deine eigene Verantwortung. Die Haftung ist ausgeschlossen, soweit das Gesetz es zulässt; die Haftung für Vorsatz und grobe Fahrlässigkeit sowie sonstige zwingende Haftung bleiben unberührt. Bitte beachte besonders:
+
+- Das Add-on nutzt eine Experiment-API mit Zugriff auf Thunderbird-Interna (Nachrichtenfilter, Passwortverwaltung). Sichere vor größeren Änderungen Dein Thunderbird-Profil, vor allem `msgFilterRules.dat`.
+- Der ISPConfig-Panel-Login füllt das Webformular wie ein Browser aus. Prüfe, ob die Bedingungen Deines Hosters das erlauben; ein Hoster kann Konten bei automatisiertem Zugriff sperren.
+- Gesperrte Adressen und Filterbedingungen können auch erwünschte Mails treffen.
+- Keine Gewähr für die Kompatibilität mit künftigen Thunderbird- oder ISPConfig-Versionen (derzeit getestet bis Thunderbird 159).
+
+**Marken:** Thunderbird ist eine Marke von Mozilla; ISPConfig ist eine Marke der jeweiligen Inhaber. Blacklist-Tools ist ein unabhängiges Produkt und wird von diesen weder unterstützt noch geprüft.
+
+Copyright © 2026 Software.Solutions.ForYou.at. Lizenz: [MPL 2.0](LICENSE).

@@ -3,9 +3,9 @@
     "{4346d631-753f-47b3-84ca-a3d0b8fecebb}": {
       "updates": [
         {
-          "version": "2.1.7",
-          "update_link": "https://github.com/crieder/blacklist-tools/releases/download/v2.1.7/blacklist-tools-2.1.7.xpi",
-          "update_hash": "sha256:c9ca03be3b764a9437521d9c70867d42c890264a7d5acb25fca047677417ba3e",
+          "version": "2.1.8",
+          "update_link": "https://github.com/crieder/blacklist-tools/releases/download/v2.1.8/blacklist-tools-2.1.8.xpi",
+          "update_hash": "sha256:c4bea018c835d87aaa02b1bfef6bee263e754e66b2d9d3ab5a57ed6c807f2b0e",
           "applications": {
             "gecko": {
               "strict_min_version": "128.0",

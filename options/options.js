@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 "use strict";
 
 const $ = id => document.getElementById(id);
@@ -92,7 +96,9 @@ async function init() {
   updateRemoteRows();
   updatePasswordPlaceholder();
   $("filterAccountId").addEventListener("change", loadFilterNames);
-  $("donate").addEventListener("click", () => openDonatePage().catch(e => console.error(e)));
+  for (const button of document.querySelectorAll("[data-link]")) {
+    button.addEventListener("click", () => openLink(button.dataset.link).catch(e => console.error(e)));
+  }
   await loadFilterNames();
 }
 

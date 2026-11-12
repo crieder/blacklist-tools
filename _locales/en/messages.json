@@ -30,7 +30,7 @@
     "message": "Settings …"
   },
   "menuDonate": {
-    "message": "♥ Support Blacklist-Tools (donate) …"
+    "message": "♥ Support Blacklist-Tools (voluntary donation) …"
   },
   "menuCtxFilterSelection": {
     "message": "Add selection to filter …"
@@ -610,7 +610,25 @@
     "message": "Support the project"
   },
   "optDonateHint": {
-    "message": "Blacklist-Tools is free. If it saves you time, you can support its development with a small donation on Liberapay."
+    "message": "Blacklist-Tools is free. If it saves you time, you can support its development with a voluntary donation on Liberapay. A donation does not entitle you to features, support or updates."
+  },
+  "optAbout": {
+    "message": "About"
+  },
+  "optAboutText": {
+    "message": "Blacklist-Tools – an add-on for Thunderbird by Software.Solutions.ForYou.at. Free and open source (MPL 2.0), provided without warranty."
+  },
+  "optAboutProduct": {
+    "message": "Product page …"
+  },
+  "optAboutImprint": {
+    "message": "Imprint …"
+  },
+  "optAboutPrivacy": {
+    "message": "Privacy policy …"
+  },
+  "optAboutTrademarks": {
+    "message": "Thunderbird is a trademark of Mozilla; ISPConfig is a trademark of its respective owners. Blacklist-Tools is an independent product and is neither endorsed nor reviewed by them."
   },
   "optDonateButton": {
     "message": "♥ Donate on Liberapay …"
