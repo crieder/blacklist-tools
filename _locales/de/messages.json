@@ -157,7 +157,7 @@
     "message": "Tipp: Text in der Nachricht markieren, dann das Menü erneut öffnen."
   },
   "dlgOwnWarning": {
-    "message": "Achtung: Das ist eine Ihrer eigenen Postfachadressen – alle Mails an diese Adresse würden abgewiesen!"
+    "message": "Achtung: Das ist eine Deiner eigenen Postfachadressen – alle Mails an diese Adresse würden abgewiesen!"
   },
   "dlgConfirmOwn": {
     "message": "Eigene Postfachadresse! Zum Bestätigen nochmals auf „Sperren“ klicken."
@@ -541,7 +541,7 @@
     "message": "ISPConfig E-Mail-Blacklist"
   },
   "optIspIntro": {
-    "message": "Optional. Nur nötig, wenn Ihre Mails auf einem mit ISPConfig verwalteten Server liegen."
+    "message": "Optional. Nur nötig, wenn Deine Mails auf einem mit ISPConfig verwalteten Server liegen."
   },
   "optIspUrl": {
     "message": "ISPConfig-Adresse"
@@ -610,7 +610,7 @@
     "message": "Projekt unterstützen"
   },
   "optDonateHint": {
-    "message": "Blacklist-Tools ist kostenlos. Wenn es Ihnen Zeit spart, können Sie die Weiterentwicklung freiwillig mit einer Spende auf Liberapay unterstützen. Eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates."
+    "message": "Blacklist-Tools ist kostenlos. Wenn es Dir Zeit spart, kannst Du die Weiterentwicklung freiwillig mit einer Spende auf Liberapay unterstützen. Eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates."
   },
   "optAbout": {
     "message": "Über"

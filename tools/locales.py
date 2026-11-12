@@ -73,7 +73,7 @@ MESSAGES = {
     "dlgTipSelect": ("Tip: select text in the message, then open the menu again.", "Tipp: Text in der Nachricht markieren, dann das Menü erneut öffnen."),
     "dlgOwnWarning": (
         "Warning: this is one of your own mailbox addresses – all mail to it would be rejected!",
-        "Achtung: Das ist eine Ihrer eigenen Postfachadressen – alle Mails an diese Adresse würden abgewiesen!",
+        "Achtung: Das ist eine Deiner eigenen Postfachadressen – alle Mails an diese Adresse würden abgewiesen!",
     ),
     "dlgConfirmOwn": ("Your own mailbox address! Click “Block” again to confirm.", "Eigene Postfachadresse! Zum Bestätigen nochmals auf „Sperren“ klicken."),
     "hintRecipient": ("Mail to this address will be rejected by the server.", "Mails an diese Adresse werden vom Server abgewiesen."),
@@ -184,7 +184,7 @@ MESSAGES = {
     "optIsp": ("ISPConfig email blacklist", "ISPConfig E-Mail-Blacklist"),
     "optIspIntro": (
         "Optional. Only needed if your mail is hosted on a server managed with ISPConfig.",
-        "Optional. Nur nötig, wenn Ihre Mails auf einem mit ISPConfig verwalteten Server liegen.",
+        "Optional. Nur nötig, wenn Deine Mails auf einem mit ISPConfig verwalteten Server liegen.",
     ),
     "optIspUrl": ("ISPConfig address", "ISPConfig-Adresse"),
     "optAuth": ("Login", "Anmeldung"),
@@ -216,7 +216,7 @@ MESSAGES = {
     "optDonate": ("Support the project", "Projekt unterstützen"),
     "optDonateHint": (
         "Blacklist-Tools is free. If it saves you time, you can support its development with a voluntary donation on Liberapay. A donation does not entitle you to features, support or updates.",
-        "Blacklist-Tools ist kostenlos. Wenn es Ihnen Zeit spart, können Sie die Weiterentwicklung freiwillig mit einer Spende auf Liberapay unterstützen. Eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates.",
+        "Blacklist-Tools ist kostenlos. Wenn es Dir Zeit spart, kannst Du die Weiterentwicklung freiwillig mit einer Spende auf Liberapay unterstützen. Eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates.",
     ),
     "optAbout": ("About", "Über"),
     "optAboutText": (
