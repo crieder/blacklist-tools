@@ -627,8 +627,11 @@
   "optAboutPrivacy": {
     "message": "Datenschutz …"
   },
+  "optAboutDisclaimer": {
+    "message": "Haftungshinweis …"
+  },
   "optAboutTrademarks": {
-    "message": "Thunderbird ist eine Marke von Mozilla; ISPConfig ist eine Marke der jeweiligen Inhaber. Blacklist-Tools ist ein unabhängiges Produkt und wird von diesen weder unterstützt noch geprüft."
+    "message": "Thunderbird und ISPConfig sind Namen bzw. Marken der jeweiligen Inhaber. Blacklist-Tools ist ein unabhängiges Produkt und wird von diesen weder unterstützt noch geprüft."
   },
   "optDonateButton": {
     "message": "Auf Liberapay unterstützen …"
