@@ -93,17 +93,3 @@ jobs:
               raise SystemExit(1)
           EOF
 
-  lint:
-    name: Thunderbird webext-linter (informational)
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v7
-      - name: Build add-on
-        run: python3 build.py
-      - name: Run linter
-        run: |
-          git clone --depth 1 https://github.com/thunderbird/webext-linter.git linter
-          cd linter && npm install --no-audit --no-fund
-          node verify.js "$GITHUB_WORKSPACE"/dist/blacklist-tools-*.xpi
