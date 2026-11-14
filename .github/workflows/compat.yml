@@ -7,7 +7,7 @@ name: Thunderbird compatibility
 
 on:
   push:
-    branches: [main]
+    branches: [main, "release-*"]
   pull_request:
   schedule:
     - cron: "17 5 * * 1,4"   # Montag und Donnerstag
