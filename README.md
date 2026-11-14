@@ -88,7 +88,7 @@ Blacklist-Tools is free and provided as is, at your own risk. Liability is exclu
 - The add-on uses an Experiment API with access to Thunderbird internals (message filters, password manager). Back up your Thunderbird profile, especially `msgFilterRules.dat`, before larger changes.
 - The ISPConfig panel login fills in the web form like a browser. Check whether your hoster's terms allow this; a hoster may block accounts for automated access.
 - Blocked addresses and filter conditions can also catch legitimate mail.
-- There is no guarantee of compatibility with future Thunderbird or ISPConfig versions (currently tested up to Thunderbird 159).
+- There is no guarantee of compatibility with future Thunderbird or ISPConfig versions.
 
 ## Trademarks
 
@@ -126,7 +126,7 @@ Das Add-on ist kostenlos. Wer die Entwicklung unterstützen möchte, kann freiwi
 - Das Add-on nutzt eine Experiment-API mit Zugriff auf Thunderbird-Interna (Nachrichtenfilter, Passwortverwaltung). Sichere vor größeren Änderungen Dein Thunderbird-Profil, vor allem `msgFilterRules.dat`.
 - Der ISPConfig-Panel-Login füllt das Webformular wie ein Browser aus. Prüfe, ob die Bedingungen Deines Hosters das erlauben; ein Hoster kann Konten bei automatisiertem Zugriff sperren.
 - Gesperrte Adressen und Filterbedingungen können auch erwünschte Mails treffen.
-- Keine Gewähr für die Kompatibilität mit künftigen Thunderbird- oder ISPConfig-Versionen (derzeit getestet bis Thunderbird 159).
+- Keine Gewähr für die Kompatibilität mit künftigen Thunderbird- oder ISPConfig-Versionen.
 
 **Marken:** Thunderbird und ISPConfig sind Namen bzw. Marken der jeweiligen Inhaber. Blacklist-Tools ist ein unabhängiges Produkt und wird von diesen weder unterstützt noch geprüft.
 

@@ -29,22 +29,24 @@ with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
 # Verweist auf das versionierte Release-Asset; nach dem Build committen.
 gecko = manifest["browser_specific_settings"]["gecko"]
 version = manifest["version"]
-updates = {
-    "addons": {
-        gecko["id"]: {
-            "updates": [
-                {
-                    "version": version,
-                    "update_link": f"https://github.com/crieder/blacklist-tools/releases/download/v{version}/{out.name}",
-                    "update_hash": "sha256:" + hashlib.sha256(out.read_bytes()).hexdigest(),
-                    "applications": {
-                        "gecko": {k: gecko[k] for k in ("strict_min_version", "strict_max_version") if k in gecko}
-                    },
-                }
-            ]
-        }
-    }
-}
-(ROOT / "updates.json").write_text(json.dumps(updates, indent=2) + "\n", encoding="utf-8", newline="\n")
+assert "strict_max_version" not in gecko, "keine Obergrenze: neue Thunderbird-Versionen würden das Add-on abschalten"
+update_file = ROOT / "updates.json"
+# Frühere Einträge bleiben stehen, aber ohne Obergrenze: Thunderbird übernimmt bei der
+# Update-Prüfung die Kompatibilität derselben Version, so werden alte Installationen
+# (z. B. 2.1.7 mit 159.*) nicht mehr von neuen Thunderbird-Versionen abgeschaltet.
+previous = []
+if update_file.exists():
+    previous = json.loads(update_file.read_text(encoding="utf-8"))["addons"][gecko["id"]]["updates"]
+entries = [e for e in previous if e["version"] != version]
+for e in entries:
+    e.get("applications", {}).get("gecko", {}).pop("strict_max_version", None)
+entries.append({
+    "version": version,
+    "update_link": f"https://github.com/crieder/blacklist-tools/releases/download/v{version}/{out.name}",
+    "update_hash": "sha256:" + hashlib.sha256(out.read_bytes()).hexdigest(),
+    "applications": {"gecko": {"strict_min_version": gecko["strict_min_version"]}},
+})
+updates = {"addons": {gecko["id"]: {"updates": entries}}}
+update_file.write_text(json.dumps(updates, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 print(out)
