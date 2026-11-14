@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 import pathlib
 import subprocess
 import sys
@@ -18,12 +19,16 @@ manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
 out = ROOT / "dist" / f"blacklist-tools-{manifest['version']}.xpi"
 out.parent.mkdir(exist_ok=True)
 
-with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
+# Erst in eine neue Datei schreiben, dann ersetzen (bestehende .xpi lassen sich
+# unter Windows teils nicht überschreiben).
+tmp = out.with_suffix(".tmp")
+with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as z:
     for entry in INCLUDE:
         path = ROOT / entry
         files = [path] if path.is_file() else sorted(p for p in path.rglob("*") if p.is_file())
         for f in files:
             z.write(f, f.relative_to(ROOT).as_posix())
+os.replace(tmp, out)
 
 # Update-Manifest für die Selbstverteilung über GitHub (manifest → update_url).
 # Verweist auf das versionierte Release-Asset; nach dem Build committen.
