@@ -88,3 +88,4 @@ button.donate:hover { background: color-mix(in srgb, #ff5d73 12%, var(--bg)); }
   .donate-card:hover .heart { animation: bt-beat 1.2s ease-in-out 2; }
   @keyframes bt-beat { 0%, 100% { transform: rotate(-7deg) scale(1); } 30% { transform: rotate(-7deg) scale(1.12); } }
 }
+#selfTest { color: var(--err); font-weight: 600; }

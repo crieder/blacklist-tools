@@ -1,0 +1,109 @@
+# Kompatibilität mit kommenden Thunderbird-Versionen.
+# Startet Thunderbird ESR, Release, Beta und Nightly headless mit dem frisch gebauten
+# Add-on und wertet den Selbsttest des Experiments aus (Zeile "BLT-SELFTEST {json}").
+# Beta liegt etwa 4 Wochen, Nightly etwa 8 Wochen vor dem Release: Ein Bruch fällt auf,
+# bevor Nutzer ihn bekommen. Nightly ist nur Frühwarnung und lässt den Lauf nicht scheitern.
+name: Thunderbird compatibility
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 5 * * 1,4"   # Montag und Donnerstag
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selftest:
+    name: Self-test (${{ matrix.channel }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: ${{ matrix.channel == 'nightly' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        channel: [esr, release, beta, nightly]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build add-on
+        run: python3 build.py
+
+      - name: Download Thunderbird ${{ matrix.channel }}
+        run: |
+          case "${{ matrix.channel }}" in
+            esr) product=thunderbird-esr-latest-SSL ;;
+            release) product=thunderbird-latest-SSL ;;
+            beta) product=thunderbird-beta-latest-SSL ;;
+            nightly) product=thunderbird-nightly-latest-SSL ;;
+          esac
+          curl -fsSL -o tb.tar.xz "https://download.mozilla.org/?product=${product}&os=linux64&lang=en-US"
+          tar -xJf tb.tar.xz
+
+      - name: Prepare profile
+        run: |
+          id=$(python3 -c "import json;print(json.load(open('manifest.json'))['browser_specific_settings']['gecko']['id'])")
+          mkdir -p profile/extensions
+          cp dist/blacklist-tools-*.xpi "profile/extensions/${id}.xpi"
+          cat > profile/user.js <<'EOF'
+          user_pref("extensions.autoDisableScopes", 0);
+          user_pref("extensions.enabledScopes", 15);
+          user_pref("extensions.experiments.enabled", true);
+          user_pref("xpinstall.signatures.required", false);
+          user_pref("browser.dom.window.dump.enabled", true);
+          user_pref("app.update.disabledForTesting", true);
+          user_pref("datareporting.policy.dataSubmissionEnabled", false);
+          user_pref("mail.provider.suppress_dialog_on_startup", true);
+          user_pref("mail.shell.checkDefaultClient", false);
+          user_pref("mailnews.start_page.enabled", false);
+          // "Lokale Ordner", damit der Filter-Test ein Konto mit Filterliste hat
+          user_pref("mail.accountmanager.accounts", "account1");
+          user_pref("mail.accountmanager.localfoldersserver", "server1");
+          user_pref("mail.account.account1.server", "server1");
+          user_pref("mail.server.server1.type", "none");
+          user_pref("mail.server.server1.hostname", "Local Folders");
+          user_pref("mail.server.server1.userName", "nobody");
+          user_pref("mail.server.server1.name", "Local Folders");
+          EOF
+
+      - name: Run Thunderbird and read the self-test
+        run: |
+          MOZ_HEADLESS=1 ./thunderbird/thunderbird --profile "$PWD/profile" --no-remote > tb.log 2>&1 &
+          pid=$!
+          for i in $(seq 1 120); do
+            grep -q '^BLT-SELFTEST ' tb.log && break
+            sleep 1
+          done
+          kill "$pid" 2>/dev/null || true
+          grep -q '^BLT-SELFTEST ' tb.log || { echo "::error::No self-test result (add-on not loaded?)"; tail -n 80 tb.log; exit 1; }
+          python3 - <<'EOF'
+          import json
+          line = next(l for l in open("tb.log", encoding="utf-8", errors="replace") if l.startswith("BLT-SELFTEST "))
+          report = json.loads(line.split(" ", 1)[1])
+          print(f"Thunderbird {report['thunderbird']}")
+          for name, result in report["results"].items():
+              print(f"  {name}: {result}")
+          if report["results"].get("filterList") == "skipped":
+              print("::warning::filterList skipped (no account with filters)")
+          if not report["ok"]:
+              print(f"::error::Self-test failed on Thunderbird {report['thunderbird']}: {', '.join(report['failed'])}")
+              raise SystemExit(1)
+          EOF
+
+  lint:
+    name: Thunderbird webext-linter (informational)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build add-on
+        run: python3 build.py
+      - name: Run linter
+        run: |
+          git clone --depth 1 https://github.com/thunderbird/webext-linter.git linter
+          cd linter && npm install --no-audit --no-fund
+          node verify.js "$GITHUB_WORKSPACE"/dist/blacklist-tools-*.xpi

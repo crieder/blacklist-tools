@@ -16,6 +16,13 @@
         ]
       },
       {
+        "name": "selfTest",
+        "type": "function",
+        "async": true,
+        "description": "Checks without side effects that the Thunderbird internals used by this API still exist. Returns { ok, failed, results, thunderbird }.",
+        "parameters": []
+      },
+      {
         "name": "setMenuTooltips",
         "type": "function",
         "async": true,

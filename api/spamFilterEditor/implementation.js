@@ -12,7 +12,7 @@
 
 "use strict";
 
-/* global ChromeUtils, Ci */
+/* global ChromeUtils, Ci, dump */
 
 var { ExtensionCommon } = ChromeUtils.importESModule(
   "resource://gre/modules/ExtensionCommon.sys.mjs"
@@ -108,6 +108,65 @@ function aboutMessageOf(nativeTab) {
     win = win.messageBrowser?.contentWindow ?? null;
   }
   return win?.location?.href?.startsWith("about:message") ? win : null;
+}
+
+/*
+ * Selbsttest: prüft ohne Nebenwirkungen, ob die Thunderbird-Interna noch da sind,
+ * die das Experiment nutzt. Läuft bei jedem Start und im CI gegen ESR/Release/Beta
+ * (Ausgabe per dump(): Zeile "BLT-SELFTEST {json}").
+ */
+const isFn = f => typeof f === "function";
+
+function filterServer() {
+  for (const account of MailServices.accounts.accounts) {
+    const server = account.incomingServer;
+    if (server?.canHaveFilters) return server;
+  }
+  return null;
+}
+
+const SELF_TESTS = {
+  // Nachrichtenfilter (getFilterNames/addCondition)
+  accounts: () => isFn(MailServices.accounts?.getAccount),
+  searchAttrib: () => ["Sender", "Subject", "Body"].every(k => Number.isInteger(Ci.nsMsgSearchAttrib?.[k])),
+  searchOp: () => Number.isInteger(Ci.nsMsgSearchOp?.Contains),
+  filterList: () => {
+    const server = filterServer();
+    if (!server) return "skipped"; // kein Konto mit Filtern (z. B. frisches Profil)
+    const list = server.getFilterList(null);
+    // createFilter liefert einen ungespeicherten Filter – nichts wird verändert.
+    const filter = list.createFilter("blt-selftest");
+    return Number.isInteger(list.filterCount) && isFn(list.getFilterAt) && isFn(list.saveToDefaultFile) &&
+      isFn(filter.createTerm) && isFn(filter.appendTerm) && "searchTerms" in filter;
+  },
+  // Spam-Button ausblenden
+  styleSheets: () => {
+    const sss = styleSheetService();
+    return isFn(sss.loadAndRegisterSheet) && isFn(sss.sheetRegistered) && Number.isInteger(sss.USER_SHEET);
+  },
+  // Passwort im Passwortmanager
+  logins: () => ["searchLoginsAsync", "addLoginAsync", "removeLoginAsync"].every(m => isFn(Services.logins?.[m])) &&
+    !!Cc["@mozilla.org/login-manager/loginInfo;1"],
+  // ISPConfig-Sitzung (Cookie-Beobachter)
+  observers: () => isFn(Services.obs?.addObserver) && !!Ci.nsIHttpChannel,
+  // Tooltips, Markierung in der Kopfzeile
+  menuIds: () => isFn(ExtensionCommon.makeWidgetId) && isFn(Services.wm?.getEnumerator),
+};
+
+function runSelfTest() {
+  const results = {};
+  for (const [name, test] of Object.entries(SELF_TESTS)) {
+    try {
+      const r = test();
+      results[name] = r === "skipped" ? "skipped" : r ? "ok" : "failed";
+    } catch (e) {
+      results[name] = `failed: ${e?.message || e}`;
+    }
+  }
+  const failed = Object.keys(results).filter(k => results[k].startsWith("failed"));
+  const report = { ok: !failed.length, failed, results, thunderbird: Services.appinfo.version };
+  dump(`BLT-SELFTEST ${JSON.stringify(report)}\n`);
+  return report;
 }
 
 /*
@@ -369,6 +428,10 @@ this.spamFilterEditor = class extends ExtensionCommon.ExtensionAPI {
          * "<widgetId>-menuitem-_<menuItemId>" (ext-menus.js) und liegen je nach
          * Menü im Hauptfenster, in about:3pane oder in about:message.
          */
+        async selfTest() {
+          return runSelfTest();
+        },
+
         async setMenuTooltips(tooltips) {
           const prefix = `${ExtensionCommon.makeWidgetId(context.extension.id)}-menuitem-_`;
           const documents = [];

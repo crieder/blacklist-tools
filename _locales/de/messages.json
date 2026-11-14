@@ -615,6 +615,17 @@
   "optAbout": {
     "message": "Über"
   },
+  "selfTestFailed": {
+    "message": "Thunderbird $P1$ hat interne Schnittstellen geändert, die Blacklist-Tools nutzt ($P2$). Diese Funktionen können ausfallen, alles andere läuft weiter. Ein Update folgt.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
   "optAboutText": {
     "message": "Blacklist-Tools – ein Add-on für Thunderbird von Software.Solutions.ForYou.at. Kostenlos und quelloffen (MPL 2.0), ohne Gewähr."
   },

@@ -83,7 +83,31 @@ async function applyJunkButtonSetting() {
   }
 }
 
+/**
+ * Prüft beim Start, ob die genutzten Thunderbird-Interna noch vorhanden sind.
+ * Bei Fehlern: Hinweis in den Einstellungen und einmal pro Thunderbird-Version
+ * eine Benachrichtigung. Der Rest des Add-ons läuft weiter.
+ */
+async function runSelfTest() {
+  let report;
+  try {
+    report = await browser.spamFilterEditor.selfTest();
+  } catch (e) {
+    report = { ok: false, failed: ["experiment"], results: { experiment: String(e?.message || e) }, thunderbird: "?" };
+  }
+  const { selfTestWarned } = await browser.storage.local.get("selfTestWarned");
+  await browser.storage.local.set({ selfTest: report });
+  if (!report.ok) {
+    console.warn("Blacklist-Tools: self-test failed", report);
+    if (selfTestWarned !== report.thunderbird) {
+      await notify(t("extensionName"), t("selfTestFailed", report.thunderbird, report.failed.join(", ")));
+      await browser.storage.local.set({ selfTestWarned: report.thunderbird });
+    }
+  }
+}
+
 async function init() {
+  await runSelfTest();
   await migrateIspPassword().catch(e => console.error("Blacklist-Tools: password migration failed", e));
   await registerSelectionScript();
   await createMenus();

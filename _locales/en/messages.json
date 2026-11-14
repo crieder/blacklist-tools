@@ -615,6 +615,17 @@
   "optAbout": {
     "message": "About"
   },
+  "selfTestFailed": {
+    "message": "Thunderbird $P1$ has changed internals that Blacklist-Tools uses ($P2$). These functions may fail; everything else keeps working. An update will follow.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
   "optAboutText": {
     "message": "Blacklist-Tools – an add-on for Thunderbird by Software.Solutions.ForYou.at. Free and open source (MPL 2.0), provided without warranty."
   },

@@ -100,6 +100,16 @@ async function init() {
     button.addEventListener("click", () => openLink(button.dataset.link).catch(e => console.error(e)));
   }
   await loadFilterNames();
+  await showSelfTest();
+}
+
+/** Zeigt einen Hinweis, wenn der Selbsttest beim Start Interna vermisst hat. */
+async function showSelfTest() {
+  const { selfTest } = await browser.storage.local.get("selfTest");
+  if (selfTest && !selfTest.ok) {
+    $("selfTest").textContent = t("selfTestFailed", selfTest.thunderbird, selfTest.failed.join(", "));
+    $("selfTest").classList.remove("hidden");
+  }
 }
 
 $("form").addEventListener("submit", event => {

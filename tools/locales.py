@@ -219,6 +219,10 @@ MESSAGES = {
         "Blacklist-Tools bleibt kostenlos. Wenn es Dir Zeit und Ärger spart, freuen wir uns über eine kleine, freiwillige Spende auf Liberapay. Eine Spende begründet keinen Anspruch auf Funktionen, Support oder Updates.",
     ),
     "optAbout": ("About", "Über"),
+    "selfTestFailed": (
+        "Thunderbird $1 has changed internals that Blacklist-Tools uses ($2). These functions may fail; everything else keeps working. An update will follow.",
+        "Thunderbird $1 hat interne Schnittstellen geändert, die Blacklist-Tools nutzt ($2). Diese Funktionen können ausfallen, alles andere läuft weiter. Ein Update folgt.",
+    ),
     "optAboutText": (
         "Blacklist-Tools – an add-on for Thunderbird by Software.Solutions.ForYou.at. Free and open source (MPL 2.0), provided without warranty.",
         "Blacklist-Tools – ein Add-on für Thunderbird von Software.Solutions.ForYou.at. Kostenlos und quelloffen (MPL 2.0), ohne Gewähr.",
